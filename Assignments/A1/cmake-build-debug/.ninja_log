@@ -1,0 +1,7 @@
+# ninja log v5
+25	143	7002520689292496	CMakeFiles/Lab_1.dir/BagIterator.cpp.obj	f97b030ef6c69e87
+39	150	7002520689357444	CMakeFiles/Lab_1.dir/ShortTest.cpp.obj	e6719cd80c46a154
+3	337	7002520691222822	CMakeFiles/Lab_1.dir/App.cpp.obj	c449fc68d9a0ab68
+18	342	7002520691287847	CMakeFiles/Lab_1.dir/Bag.cpp.obj	cbaa6c0d0d27aeb7
+469	638	7002520694213550	Lab_1.exe	51f37a8fc2a9698e
+12	469	7002520692558069	CMakeFiles/Lab_1.dir/ExtendedTest.cpp.obj	dc8fcc323559bec8
