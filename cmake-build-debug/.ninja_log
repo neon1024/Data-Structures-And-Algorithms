@@ -1,0 +1,7 @@
+# ninja log v5
+51	197	7004283626402302	CMakeFiles/Data_Structures_and_Algorithms.dir/Assignments/A1/BagIterator.cpp.obj	86a5b8aa87dcfc38
+8	411	7004283628528741	CMakeFiles/Data_Structures_and_Algorithms.dir/Assignments/A1/App.cpp.obj	a76b5ff9a4082e9c
+0	423	7004283628674507	CMakeFiles/Data_Structures_and_Algorithms.dir/Assignments/A1/Bag.cpp.obj	60386ee011be7983
+17	440	7004283628845973	CMakeFiles/Data_Structures_and_Algorithms.dir/Assignments/A1/ShortTest.cpp.obj	a3ab659c612a2c68
+34	564	7004283630087838	CMakeFiles/Data_Structures_and_Algorithms.dir/Assignments/A1/ExtendedTest.cpp.obj	28928ac1eb1d6db3
+564	692	7004283631359790	Data_Structures_and_Algorithms.exe	762c3282e4c15978
