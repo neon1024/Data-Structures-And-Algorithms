@@ -30,7 +30,6 @@ void Bag::add(TElem elem) {
                 resize P
             add this->size_capacity-1 to P
     */
-
     // check if elem already in U
     bool elem_already_exists = false;
     int elem_position = -1;
@@ -73,6 +72,7 @@ void Bag::add(TElem elem) {
 }
 
 bool Bag::remove(TElem elem) {
+    // TODO: rearrange the elements (their values are wrong after a removal)
     /*
         Implementation:
         check if elem is in U
@@ -94,7 +94,6 @@ bool Bag::remove(TElem elem) {
     if(elem_position == -1) {
         return false;
     }
-
     // remove all occurrences of elem_position from P
     Bag::remove_first_occurrence_from_positions(elem_position);
 
@@ -126,7 +125,6 @@ int Bag::nrOccurrences(TElem elem) const {
         else, if elem not in U:
             return 0
      */
-
     int elem_position = -1;
 
     for(int index = 0; index < this->size_unique_elements; index++) {
@@ -179,7 +177,7 @@ void Bag::remove_first_occurrence_from_positions(int position) {
             for(int target = index+1; target < this->size_positions; target++) {
                 this->positions[target-1] = this->positions[target];
             }
-            this->size_positions -= 1;
+            this->size_positions--;
             break;
         }
     }
@@ -192,37 +190,39 @@ void Bag::add_to_unique_elements(TElem elem) {
 
 void Bag::add_to_positions(int index) {
     this->positions[this->size_positions] = index;
-    this->size_positions += 1;
+    this->size_positions++;
 }
 
 void Bag::resize_unique_elements() {
-    this->capacity_unique_elements = 2* this->capacity_unique_elements;
-    TElem* resized_unique_elements = new TElem[this->capacity_unique_elements];
+    int new_capacity = 2 * this->capacity_unique_elements;
+    TElem* resized_elements = new TElem[new_capacity];
 
     // copy the elements into the new dynamic array
     for(int index = 0; index < this->size_unique_elements; index++) {
-        resized_unique_elements[index] = this->unique_elements[index];
+        resized_elements[index] = this->unique_elements[index];
     }
 
     // make the linking
     delete[] this->unique_elements;
 
-    this->unique_elements = resized_unique_elements;
+    this->unique_elements = resized_elements;
+    this->capacity_unique_elements = new_capacity;
 }
 
 void Bag::resize_positions() {
-    this->capacity_positions = 2* this->capacity_positions;
-    TElem* resized_positions = new TElem[this->capacity_positions];
+    int new_capacity = 2 * this->capacity_positions;
+    TElem* resized_elements = new TElem[new_capacity];
 
     // copy the elements into the new dynamic array
     for(int index = 0; index < this->size_positions; index++) {
-        resized_positions[index] = this->positions[index];
+        resized_elements[index] = this->positions[index];
     }
 
     // make the linking
     delete[] this->positions;
 
-    this->positions = resized_positions;
+    this->positions = resized_elements;
+    this->capacity_positions = new_capacity;
 }
 
 BagIterator Bag::iterator() const {
@@ -235,4 +235,3 @@ Bag::~Bag() {
     // delete the P links
     delete[] this->positions;
 }
-

@@ -1,4 +1,4 @@
-#include <assert.h>
+#include <cassert>
 #include "Bag.h"
 #include "ExtendedTest.h"
 #include "BagIterator.h"
@@ -32,7 +32,6 @@ void testCreate() {
 	for (int i = -10; i < 10; i++) {
 		assert(b.nrOccurrences(i) == 0);
 	}
-
 	BagIterator it = b.iterator(); 
 	assert(it.valid() == false);
 }
@@ -105,7 +104,6 @@ void testRemove() {
 		b.add(i);
 	}
 	for (int i = -100; i < 100; i++) {
-
 		if (i % 2 == 0) {
 			assert(b.remove(i) == true);
 		}
@@ -114,7 +112,7 @@ void testRemove() {
 		}
 	}
 	testIteratorSteps(b);
-	assert(b.size() == 0);
+	assert(b.size() == 0);  // TODO: rearrange the values (they are wrong after a removal)
 	for (int i = -100; i <= 100; i = i + 2) { 
 		b.add(i);
 	}

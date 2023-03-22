@@ -11,6 +11,8 @@ private:
 
 	BagIterator(const Bag& c);
 
+    int current_position;
+
 public:
 	void first();
 	void next();

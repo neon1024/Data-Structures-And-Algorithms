@@ -1,5 +1,5 @@
 #include "ShortTest.h"
-#include <assert.h>
+#include <cassert>
 #include "Bag.h"
 #include "BagIterator.h"
 #include <iostream>
