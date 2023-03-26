@@ -112,7 +112,7 @@ void testRemove() {
 		}
 	}
 	testIteratorSteps(b);
-	assert(b.size() == 0);  // TODO: rearrange the values (they are wrong after a removal)
+	assert(b.size() == 0);
 	for (int i = -100; i <= 100; i = i + 2) { 
 		b.add(i);
 	}
@@ -249,7 +249,6 @@ void testIterator() {
 		assert(true);
 	}
 
-
 	Bag b2;
 	for (int i = -100; i < 100; i++) { 
 		b2.add(i);
@@ -365,6 +364,4 @@ void testAllExtended() {
 	testRemove();
 	testIterator();
 	testQuantity();
-
-
 }

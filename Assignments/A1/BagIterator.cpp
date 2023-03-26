@@ -17,6 +17,8 @@ void BagIterator::next() {
 	//TODO - Implementation
     if(valid()) {
         this->current_position++;
+    } else {
+        throw std::exception();
     }
 }
 
@@ -33,5 +35,5 @@ TElem BagIterator::getCurrent() const {
     if(valid()) {
         return bag.unique_elements[bag.positions[this->current_position]];
     }
-	return NULL_TELEM 
+	throw std::exception();
 }

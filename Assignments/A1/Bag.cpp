@@ -101,9 +101,18 @@ bool Bag::remove(TElem elem) {
     if(Bag::nrOccurrences(elem) == 0) {
         // remove elem from U
         Bag::remove_from_unique_elements(elem);
+        Bag::rearrange_positions(elem_position);
     }
 
     return true;
+}
+
+void Bag::rearrange_positions(int index) {
+    for(int i = 0; i < this->size_positions; i++) {
+        if(this->positions[i] > index) {
+            this->positions[i]--;
+        }
+    }
 }
 
 bool Bag::search(TElem elem) const {
