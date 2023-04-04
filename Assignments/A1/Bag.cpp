@@ -6,6 +6,12 @@ using namespace std;
 
 
 Bag::Bag() {
+    /* Constructs the object Bag
+     * Time Complexity:
+     * Best Case: Theta(1)
+     * Average Case: Theta(1)
+     * Worst Case: Theta(1)
+     */
     this->capacity_unique_elements = DEFAULT_CAPACITY_UNIQUE_ELEMENTS;
     this->size_unique_elements = 0;
     this->unique_elements = new TElem[this->capacity_unique_elements];
@@ -16,6 +22,14 @@ Bag::Bag() {
 }
 
 void Bag::add(TElem elem) {
+    /* Adds a given element to the Bag
+     * Time Complexity:
+     * Best Case: Theta(1)
+     * Average Case: Theta(max{n, m})
+     * Worst Case: Theta(n + m)
+     * n: the size of U
+     * m: the size of P
+     */
     /*
         Implementation:
         if elem already exists in U:
@@ -72,15 +86,13 @@ void Bag::add(TElem elem) {
 }
 
 bool Bag::remove(TElem elem) {
-    // TODO: rearrange the elements (their values are wrong after a removal)
-    /*
-        Implementation:
-        check if elem is in U
-        if is not, return false
-        if is in U, then:
-            find the position where elem appears in U
-            remove the first occurrence of this position from P
-            if no occurrences of this position appear in P anymore, then remove elem from U
+    /* Removes a given element from the Bag
+     * Time Complexity:
+     * Best Case: Theta(min{n, m})
+     * Average Case: Theta(m + n)
+     * Worst Case: Theta(n + m)
+     * n: the size of U
+     * m: the size of P
      */
     int elem_position = -1;
 
@@ -108,6 +120,14 @@ bool Bag::remove(TElem elem) {
 }
 
 void Bag::rearrange_positions(int index) {
+    /* Rearrange the positions from P (modify their value) after an element was
+     * removed from U and the order from P shifted
+     * Time Complexity:
+     * Best Case: Theta(m)
+     * Average Case: Theta(m)
+     * Worst Case: Theta(m)
+     * m: the size of P
+     */
     for(int i = 0; i < this->size_positions; i++) {
         if(this->positions[i] > index) {
             this->positions[i]--;
@@ -116,7 +136,13 @@ void Bag::rearrange_positions(int index) {
 }
 
 bool Bag::search(TElem elem) const {
-    // check if elem is in U
+    /* Returns True if a given element is in the Bag, False otherwise
+     * Time Complexity:
+     * Best Case: Theta(1): found on the first positions
+     * Average Case: Theta(n)
+     * Worst Case: Theta(n)
+     * n: the size of U
+     */
     for(int index = 0; index < this->size_unique_elements; index++) {
         if(this->unique_elements[index] == elem) {
             return true;
@@ -126,13 +152,13 @@ bool Bag::search(TElem elem) const {
 }
 
 int Bag::nrOccurrences(TElem elem) const {
-    /*
-        Implementation:
-        if elem in U:
-            find how many times the position appears in P
-            return that number
-        else, if elem not in U:
-            return 0
+    /* Returns the number of occurrences of a given element from the Bag
+     * Time Complexity:
+     * Best Case: Theta(min{n, m}): either traverses U and doesn't find the element and returns or traverses P
+     * Average Case: Theta(n + m)
+     * Worst Case: Theta(n + m)
+     * n: the size of U
+     * m: the size of P
      */
     int elem_position = -1;
 
@@ -159,16 +185,33 @@ int Bag::nrOccurrences(TElem elem) const {
 }
 
 int Bag::size() const {
-    // the size is the number of elements in P
+    /* Returns the size of the Bag
+     * Time Complexity:
+     * Best Case: Theta(1)
+     * Average Case: Theta(1)
+     * Worst Case: Theta(1)
+     */
 	return this->size_positions;
 }
 
 bool Bag::isEmpty() const {
-    // is empty if size is 0
+    /* Returns True if the Bag is empty, False otherwise
+     * Time Complexity:
+     * Best Case: Theta(1)
+     * Average Case: Theta(1)
+     * Worst Case: Theta(1)
+     */
 	return this->size_unique_elements == 0 && this->size_positions == 0;
 }
 
 void Bag::remove_from_unique_elements(TElem elem) {
+    /* Removes a given element from U
+     * Time Complexity:
+     * Best Case: Theta(1)
+     * Average Case: Theta(n)
+     * Worst Case: Theta(n)
+     * n: the size of U
+     */
     for(int index = 0; index < this->size_unique_elements; index++) {
         if(this->unique_elements[index] == elem) {
             for(int position = index+1; position < this->size_unique_elements; position++) {
@@ -181,6 +224,13 @@ void Bag::remove_from_unique_elements(TElem elem) {
 }
 
 void Bag::remove_first_occurrence_from_positions(int position) {
+    /* Removes the first occurrence of a given element from P (position)
+     * Time Complexity:
+     * Best Case: Theta(m)
+     * Average Case: Theta(m)
+     * Worst Case: Theta(m)
+     * m: the size of P
+     */
     for(int index = 0; index < this->size_positions; index++) {
         if(this->positions[index] == position) {
             for(int target = index+1; target < this->size_positions; target++) {
@@ -193,25 +243,49 @@ void Bag::remove_first_occurrence_from_positions(int position) {
 }
 
 void Bag::add_to_unique_elements(TElem elem) {
+    /* Adds a new element (that is not already in U) in U
+     * Time Complexity:
+     * Best Case: Theta(1)
+     * Average Case: Theta(1)
+     * Worst Case: Theta(1)
+     */
     this->unique_elements[this->size_unique_elements] = elem;
     this->size_unique_elements += 1;
 }
 
 void Bag::add_to_positions(int index) {
+    /* Adds a new element (that is an index mapped to an unique element in U) in P
+     * Time Complexity:
+     * Best Case: Theta(1)
+     * Average Case: Theta(1)
+     * Worst Case: Theta(1)
+     */
     this->positions[this->size_positions] = index;
     this->size_positions++;
 }
 
 void Bag::resize_unique_elements() {
-    int new_capacity = 2 * this->capacity_unique_elements;
+    /* Resize the dynamic array that holds the unique elements
+     * Time Complexity:
+     * Best Case: Theta(1)
+     * Average Case: Theta(n)
+     * Worst Case: Theta(n)
+     * n: the size of U
+     */
+    int new_capacity;
+
+    if(this->capacity_unique_elements == 0) {
+        new_capacity = 1;
+    } else {
+        new_capacity = this->capacity_unique_elements * 2;
+    }
+
     TElem* resized_elements = new TElem[new_capacity];
 
-    // copy the elements into the new dynamic array
     for(int index = 0; index < this->size_unique_elements; index++) {
         resized_elements[index] = this->unique_elements[index];
     }
 
-    // make the linking
     delete[] this->unique_elements;
 
     this->unique_elements = resized_elements;
@@ -219,15 +293,27 @@ void Bag::resize_unique_elements() {
 }
 
 void Bag::resize_positions() {
-    int new_capacity = 2 * this->capacity_positions;
+    /* Resize the dynamic array that holds the unique elements
+     * Time Complexity:
+     * Best Case: Theta(1)
+     * Average Case: Theta(m)
+     * Worst Case: Theta(m)
+     * m: the size of P
+     */
+    int new_capacity;
+
+    if(this->capacity_positions == 0) {
+        new_capacity = 1;
+    } else {
+        new_capacity = this->capacity_positions * 2;
+    }
+
     TElem* resized_elements = new TElem[new_capacity];
 
-    // copy the elements into the new dynamic array
     for(int index = 0; index < this->size_positions; index++) {
         resized_elements[index] = this->positions[index];
     }
 
-    // make the linking
     delete[] this->positions;
 
     this->positions = resized_elements;
