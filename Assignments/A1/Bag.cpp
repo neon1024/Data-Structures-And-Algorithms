@@ -97,8 +97,9 @@ int Bag::removeAllOccurrences(TElem elem) {
      * Returns the number of elements that were removed from the Bag
      * Time Complexity:
      * Best Case: Theta(min{n, m})
-     * Average Case:
+     * Average Case: Theta(n + (n + m)*m)
      * Worst Case: Theta(n + (n + m)*m)
+     * Overall: O(n + (n + m)*m)
      * n: the size of U
      * m: the size of P
      */
@@ -189,9 +190,10 @@ bool Bag::search(TElem elem) const {
 int Bag::nrOccurrences(TElem elem) const {
     /* Returns the number of occurrences of a given element from the Bag
      * Time Complexity:
-     * Best Case: Theta(min{n, m}): either traverses U and doesn't find the element and returns or traverses P
+     * Best Case: Theta(min{n, m})
      * Average Case: Theta(n + m)
      * Worst Case: Theta(n + m)
+     * Overall: O(n + m)
      * n: the size of U
      * m: the size of P
      */

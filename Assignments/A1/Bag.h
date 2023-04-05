@@ -49,7 +49,7 @@ public:
 	bool remove(TElem e);
     // removes all occurrences of a given element from the Bag
     int removeAllOccurrences(TElem e);
-    // TODO Bonus
+    // removes all the elements of with multiple occurrences from the Bag
     int removeElementsWithMultipleOccurrences();
 	//checks if an element appears is the bag
 	bool search(TElem e) const;
