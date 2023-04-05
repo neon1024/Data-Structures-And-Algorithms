@@ -1,16 +1,10 @@
 #include "Bag.h"
 #include "BagIterator.h"
 #include <exception>
-#include <iostream>
-using namespace std;
-
 
 Bag::Bag() {
     /* Constructs the object Bag
-     * Time Complexity:
-     * Best Case: Theta(1)
-     * Average Case: Theta(1)
-     * Worst Case: Theta(1)
+     * Time Complexity: Theta(1)
      */
     this->capacity_unique_elements = DEFAULT_CAPACITY_UNIQUE_ELEMENTS;
     this->size_unique_elements = 0;
@@ -30,57 +24,36 @@ void Bag::add(TElem elem) {
      * n: the size of U
      * m: the size of P
      */
-    /*
-        Implementation:
-        if elem already exists in U:
-            if P capacity is full:
-                resize P
-            add to P the position where elem was found in U
-        else, if elem does not exist in U:
-            if capacity of U is full:
-                resize U
-            add elem
-            if P capacity is full:
-                resize P
-            add this->size_capacity-1 to P
-    */
-    // check if elem already in U
+    // check if elem is already in U
     bool elem_already_exists = false;
     int elem_position = -1;
 
-    for(int index = 0; index < this->size_unique_elements && !elem_already_exists; index++) {
+    for(int index = 0; index < this->size_unique_elements; index++) {
         if(this->unique_elements[index] == elem) {
             elem_already_exists = true;
             elem_position = index;
+            break;
         }
     }
 
     if(elem_already_exists) {
-        // update P
-        // check if P capacity is full
         if(this->size_positions >= this->capacity_positions) {
-            // resize P
             Bag::resize_positions();
         }
-        // add position to P
+
         Bag::add_to_positions(elem_position);
     }
     else {
-        // update U
-        // check if U capacity is full
         if(this->size_unique_elements >= this->capacity_unique_elements) {
-            // resize U
             Bag::resize_unique_elements();
         }
-        // add elem to U
+
         Bag::add_to_unique_elements(elem);
-        // update P
-        // check if P capacity is full
+
         if(this->size_positions >= this->capacity_positions) {
-            // resize P
             Bag::resize_positions();
         }
-        // add position to P
+
         Bag::add_to_positions(this->size_unique_elements-1);
     }
 }
@@ -153,6 +126,32 @@ int Bag::removeAllOccurrences(TElem elem) {
     Bag::rearrange_positions(elem_position);
 
     return number_of_removed_elements;
+}
+
+int Bag::removeElementsWithMultipleOccurrences() {
+    /* Removes all the elements that have multiple occurrences from the Bag
+     * Time Complexity:
+     * Best Case: Theta(n * m)
+     * Average Case: Theta(n * (m + p))
+     * Worst Case: Theta(n * (m + p))
+     * Overall: O(n * (m + p))
+     * n: the size of U
+     * m: the time complexity of nrOccurrences
+     * p: the time complexity of removeAllOccurrences
+     */
+    int removed_elements{0};
+
+    for(int i = 0; i < this->size_unique_elements; ++i) {
+        int number_of_occurrences{Bag::nrOccurrences(this->unique_elements[i])};
+
+        if(number_of_occurrences > 1) {
+            Bag::removeAllOccurrences(this->unique_elements[i]);
+
+            removed_elements += number_of_occurrences;
+        }
+    }
+
+    return removed_elements;
 }
 
 void Bag::rearrange_positions(int index) {
@@ -279,14 +278,11 @@ void Bag::remove_first_occurrence_from_positions(int position) {
 }
 
 void Bag::add_to_unique_elements(TElem elem) {
-    /* Adds a new element (that is not already in U) in U
-     * Time Complexity:
-     * Best Case: Theta(1)
-     * Average Case: Theta(1)
-     * Worst Case: Theta(1)
+    /* Adds a given element in U
+     * Time Complexity: Theta(1)
      */
     this->unique_elements[this->size_unique_elements] = elem;
-    this->size_unique_elements += 1;
+    this->size_unique_elements++;
 }
 
 void Bag::add_to_positions(int index) {

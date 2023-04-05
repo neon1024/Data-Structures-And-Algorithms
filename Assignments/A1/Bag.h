@@ -12,12 +12,14 @@ class BagIterator;
 
 class Bag {
 private:
-    /*
-        6.ADT Bag – represented as a dynamic array of unique elements (U) and
-        a dynamic array of positions (P) in U of the elements from the Bag.
-        For example, the bag [5, 10, -1, 2, 3, 10, 5, 5, -5] will be represented
-        as: U = [5, 10, -1, 2, 3, -5] and P = [0, 1, 2, 3, 4, 1, 0, 0, 5]
-    */
+    /* ADT Bag represented as a dynamic array of unique elements (U) and
+     * a dynamic array of positions (P). An element from P refers to an index in U
+     * where an element from the Bag is.
+     * Example:
+     * B = [5, 10, -1, 2, 3, 10, 5, 5, -5], the Bag, will be represented as:
+     * U = [5, 10, -1, 2, 3, -5] and
+     * P = [0, 1, 2, 3, 4, 1, 0, 0, 5]
+     */
     // dynamic array of unique elements (U)
     TElem* unique_elements;
     int capacity_unique_elements;  // maximum number of unique elements that can be stored
@@ -45,8 +47,10 @@ public:
 	//removes one occurrence of an element from a bag
 	//returns true if an element was removed, false otherwise (if e was not part of the bag)
 	bool remove(TElem e);
-    // TODO Bonus
+    // removes all occurrences of a given element from the Bag
     int removeAllOccurrences(TElem e);
+    // TODO Bonus
+    int removeElementsWithMultipleOccurrences();
 	//checks if an element appears is the bag
 	bool search(TElem e) const;
 	//returns the number of occurrences for an element in the bag
