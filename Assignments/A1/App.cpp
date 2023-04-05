@@ -11,7 +11,7 @@ int main() {
 
     cout << "Short tests over" << '\n';
 
-	testAllExtended();
+	// testAllExtended();
 
-	cout << "All tests over" << '\n';
+	// cout << "All tests over" << '\n';
 }

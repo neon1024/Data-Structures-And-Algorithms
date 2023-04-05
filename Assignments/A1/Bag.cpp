@@ -119,6 +119,42 @@ bool Bag::remove(TElem elem) {
     return true;
 }
 
+int Bag::removeAllOccurrences(TElem elem) {
+    /* Removes all the occurrences of a given element from the Bag
+     * Returns the number of elements that were removed from the Bag
+     * Time Complexity:
+     * Best Case: Theta(min{n, m})
+     * Average Case:
+     * Worst Case: Theta(n + (n + m)*m)
+     * n: the size of U
+     * m: the size of P
+     */
+    int elem_position = -1;
+
+    for(int index = 0; index < this->size_unique_elements; index++) {
+        if(this->unique_elements[index] == elem) {
+            elem_position = index;
+            break;
+        }
+    }
+
+    if(elem_position == -1) {
+        return 0;
+    }
+
+    int number_of_removed_elements{0};
+
+    while(Bag::nrOccurrences(elem) != 0) {
+        Bag::remove_first_occurrence_from_positions(elem_position);
+        number_of_removed_elements++;
+    }
+
+    Bag::remove_from_unique_elements(elem);
+    Bag::rearrange_positions(elem_position);
+
+    return number_of_removed_elements;
+}
+
 void Bag::rearrange_positions(int index) {
     /* Rearrange the positions from P (modify their value) after an element was
      * removed from U and the order from P shifted

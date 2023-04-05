@@ -7,7 +7,6 @@ class BagIterator
 	
 private:
 	const Bag& bag;
-	//TODO  - Representation
 
 	BagIterator(const Bag& c);
 

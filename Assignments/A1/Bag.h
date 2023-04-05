@@ -45,6 +45,8 @@ public:
 	//removes one occurrence of an element from a bag
 	//returns true if an element was removed, false otherwise (if e was not part of the bag)
 	bool remove(TElem e);
+    // TODO Bonus
+    int removeAllOccurrences(TElem e);
 	//checks if an element appears is the bag
 	bool search(TElem e) const;
 	//returns the number of occurrences for an element in the bag

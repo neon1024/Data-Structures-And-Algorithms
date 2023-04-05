@@ -33,4 +33,40 @@ void testAll() {
 		TElem e = it.getCurrent();
 		it.next();
 	}
+    // TODO Bonus
+    Bag c;
+    assert(c.isEmpty() == true);
+    assert(c.size() == 0);
+    c.add(1);
+    c.add(2);
+    c.add(3);
+    assert(c.isEmpty() == false);
+    assert(c.size() == 3);
+    c.add(1);
+    c.add(2);
+    assert(c.size() == 5);
+    c.removeAllOccurrences(1);
+    assert(c.size() == 3);
+    assert(c.nrOccurrences(1) == 0);
+    c.removeAllOccurrences(2);
+    assert(c.size() == 1);
+    assert(c.nrOccurrences(2) == 0);
+    c.add(1);
+    c.add(2);
+    c.add(1);
+    c.add(2);
+    c.add(5);
+    c.add(6);
+    assert(c.size() == 7);
+    c.removeAllOccurrences(1);
+    assert(c.size() == 5);
+    assert(c.nrOccurrences(1) == 0);
+    c.remove(5);
+    assert(c.size() == 4);
+    assert(c.nrOccurrences(5) == 0);
+    c.removeAllOccurrences(3);
+    assert(c.size() == 3);
+    assert(c.nrOccurrences(3) == 0);
+    assert(c.nrOccurrences(2) == 2);
+    assert(c.nrOccurrences(6) == 1);
 }
