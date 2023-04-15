@@ -23,6 +23,8 @@ class Set {
         Node* head;
         Node* tail;
 
+        const TElem getElementAt(int position);
+
     public:
         // implicit constructor
         Set();

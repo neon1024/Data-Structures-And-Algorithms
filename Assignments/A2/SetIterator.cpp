@@ -2,32 +2,27 @@
 #include "Set.h"
 
 
-SetIterator::SetIterator(const Set& m) : set(m)
-{
-	//TODO - Implementation
+SetIterator::SetIterator(const Set& m) : set(m) {
+    this->currentPosition = 0;
 }
-
 
 void SetIterator::first() {
-	//TODO - Implementation
+    this->currentPosition = 0;
 }
-
 
 void SetIterator::next() {
-	//TODO - Implementation
+    this->currentPosition++;
 }
 
+TElem SetIterator::getCurrent() {
+	// TODO - Implementation
+    if(this->valid()) {
+        return this->set.getElementAt(this->currentPosition);
+    }
 
-TElem SetIterator::getCurrent()
-{
-	//TODO - Implementation
 	return NULL_TELEM;
 }
 
 bool SetIterator::valid() const {
-	//TODO - Implementation
-	return false;
+    return this->currentPosition < this->set.size();
 }
-
-
-
