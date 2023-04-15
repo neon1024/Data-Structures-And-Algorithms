@@ -8,110 +8,108 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Lab_1">
-				<Option output="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Lab_1.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug"/>
+				<Option output="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Lab_1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/."/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/."/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../include/c++/12.1.0"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../include/c++/12.1.0/x86_64-w64-mingw32"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../include/c++/12.1.0/backward"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab_1"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab_1"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Lab_1/fast">
-				<Option output="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Lab_1.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug"/>
+				<Option output="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Lab_1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/."/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/."/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../include/c++/12.1.0"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../include/c++/12.1.0/x86_64-w64-mingw32"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../include/c++/12.1.0/backward"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab_1/fast"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Lab_1/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/App.cpp">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/App.cpp">
 			<Option target="Lab_1"/>
 		</Unit>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/Bag.cpp">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/Bag.cpp">
 			<Option target="Lab_1"/>
 		</Unit>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/Bag.h">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/Bag.h">
 			<Option target="Lab_1"/>
 		</Unit>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/BagIterator.cpp">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/BagIterator.cpp">
 			<Option target="Lab_1"/>
 		</Unit>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/BagIterator.h">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/BagIterator.h">
 			<Option target="Lab_1"/>
 		</Unit>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/ExtendedTest.cpp">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/ExtendedTest.cpp">
 			<Option target="Lab_1"/>
 		</Unit>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/ExtendedTest.h">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/ExtendedTest.h">
 			<Option target="Lab_1"/>
 		</Unit>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/ShortTest.cpp">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/ShortTest.cpp">
 			<Option target="Lab_1"/>
 		</Unit>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/ShortTest.h">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/ShortTest.h">
 			<Option target="Lab_1"/>
 		</Unit>
-		<Unit filename="C:/Users/MSI/OneDrive/Desktop/Data-Structures-and-Algorithms-Assignments/Lab 1/CMakeLists.txt">
+		<Unit filename="C:/Users/rober/Desktop/Coding Spaces/UBB Coding Space/Data-Structures-and-Algorithms/Assignments/A1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

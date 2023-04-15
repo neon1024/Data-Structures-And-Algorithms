@@ -6,18 +6,18 @@
 #include <iostream>
 using namespace std;
 
-
-
-
 int main() {
+    std::cout << "Short testing..." << '\n';
 
-	testAll();
+    testAll();
+
+    std::cout << "Short testing done!" << '\n';
+
+    std::cout << "Extended testing..." << '\n';
+
 	testAllExtended();
 
-	cout << "That's all!" << endl;
-	system("pause");
+    std::cout << "Extended testing done!" << '\n';
 
+    return 0;
 }
-
-
-
