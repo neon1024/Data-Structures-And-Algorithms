@@ -1,5 +1,5 @@
 #include "Set.h"
-#include <assert.h>
+#include <cassert>
 #include "ExtendedTest.h"
 #include "SetIterator.h"
 #include <iostream>
@@ -32,37 +32,36 @@ void testCreate() {
 	assert(s.size() == 0);
 	assert(s.isEmpty() == true);
 
-	for (int i = -10; i < 10; i++) { //search in an empty set
+	for (int i = -10; i < 10; i++) {  // search in an empty set
 		assert(s.search(i) == false);
 	}
-	for (int i = -10; i < 10; i++) { //delete from an empty set
+	for (int i = -10; i < 10; i++) {  // delete from an empty set
 		assert(s.remove(i) == false);
 	}
 
-	SetIterator it = s.iterator(); //iterator on the empty set should be invalid from the start
+	SetIterator it = s.iterator();  // iterator on the empty set should be invalid from the start
 	assert(it.valid() == false);
 }
 
-
 void testAdd() {
 	cout << "Test add" << endl;
-	Set s; //adaugam elemente [0, 10)
+	Set s;  // adaugam elemente [0, 10)
 	for (int i = 0; i < 10; i++) {
 		s.add(i);
 	}
-	//printM(m);
+	// printM(m);
 	assert(s.isEmpty() == false);
 	assert(s.size() == 10);
-	for (int i = -10; i < 20; i++) { //add more elements [-10, 20)
+	for (int i = -10; i < 20; i++) {  // add more elements [-10, 20)
 		s.add(i);
 	}
-	//printM(m);
+	// printM(m);
 	assert(s.isEmpty() == false);
 	assert(s.size() == 30);
-	for (int i = -100; i < 100; i++) { //add more elements [-100, 100)
+	for (int i = -100; i < 100; i++) {  // add more elements [-100, 100)
 		s.add(i);
 	}
-	//printM(m);
+	// printM(m);
 	assert(s.isEmpty() == false);
 	assert(s.size() == 200);
 	for (int i = -200; i < 200; i++) {
@@ -80,26 +79,25 @@ void testAdd() {
 		}
 	}
 	testIteratorSteps(s);
-	for (int i = 10000; i > -10000; i--) { //add larger values first
+	for (int i = 10000; i > -10000; i--) {  // add larger values first
 		s.add(i);
 	}
 	testIteratorSteps(s);
 	assert(s.size()==20000);
 }
 
-
 void testRemove() {
 	cout << "Test remove" << endl;
 	Set m;
-	for (int i = -100; i < 100; i++) { //delete from the emtpy set
+	for (int i = -100; i < 100; i++) {  // delete from the emtpy set
 		assert(m.remove(i) == false);
 	}
 	assert(m.size() == 0);
-	//printM(m);
+	// printM(m);
 	for (int i = -100; i < 100; i = i + 2) { 
 		m.add(i);
 	}
-	for (int i = -100; i < 100; i++) { //delete everything (including inexistent elements)
+	for (int i = -100; i < 100; i++) {  // delete everything (including inexistent elements)
 		if (i % 2 == 0) {
 			assert(m.remove(i) == true);
 		}
@@ -108,13 +106,13 @@ void testRemove() {
 		}
 	}
 	assert(m.size() == 0);
-	//printM(m);
+	// printM(m);
 
 	for (int i = -100; i <= 100; i = i + 2) { 
 		m.add(i);
 	}
-	//printM(m);
-	for (int i = 100; i > -100; i--) { //delete in descending order (reverse order compared to the adding)
+	// printM(m);
+	for (int i = 100; i > -100; i--) {  // delete in descending order (reverse order compared to the adding)
 		if (i % 2 == 0) {
 			assert(m.remove(i) == true);
 		}
@@ -124,21 +122,21 @@ void testRemove() {
 	}
 
 	assert(m.size() == 1);
-	//printM(m);
+	// printM(m);
 
 	m.remove(-100);
 	assert(m.size() == 0);
 
-	for (int i = -100; i < 100; i++) { //add each element five times
+	for (int i = -100; i < 100; i++) {  // add each element five times
 		m.add(i);
 		m.add(i);
 		m.add(i);
 		m.add(i);
 		m.add(i);
 	}
-	//printM(m);
+	// printM(m);
 	assert(m.size() == 200);
-	for (int i = -200; i < 200; i++) { //delete existing and inexistent elements
+	for (int i = -200; i < 200; i++) {  // delete existing and inexistent elements
 		if (i < -100 || i >= 100) {
 			assert(m.remove(i) == false);
 		}
@@ -152,11 +150,10 @@ void testRemove() {
 
  }
 
-
 void testIterator() {
 	cout << "Test iterator" << endl;
 	Set s;
-	SetIterator it = s.iterator(); //iterator on an empty set
+	SetIterator it = s.iterator();  // iterator on an empty set
 	assert(it.valid() == false);
 	try {
 		it.next();
@@ -175,7 +172,7 @@ void testIterator() {
 	for (int i = 0; i < 100; i++) {  
 		s.add(33);
 	}
-	//printM(m);
+	// printM(m);
 	SetIterator it2 = s.iterator(); 
 	assert(it2.valid() == true);
 	TElem elem = it2.getCurrent();
@@ -192,11 +189,11 @@ void testIterator() {
 		s2.add(i);
 		s2.add(i);
 	}
-	//printM(m2);
+	// printM(m2);
 	SetIterator it3 = s2.iterator();
 	assert(it3.valid() == true);
 	for (int i = 0; i < 200; i++) {
-		//TElem e1 = im3.element();
+		// TElem e1 = im3.element();
 		it3.next();
 	}
 	assert(it3.valid() == false);
@@ -208,7 +205,7 @@ void testIterator() {
 	for (int i = 0; i < 200; i= i + 4) { 
 		s3.add(i);
 	}
-	//printM(m3);
+	// printM(m3);
 
 	SetIterator it4 = s3.iterator();
 	assert(it4.valid() == true);
@@ -234,11 +231,9 @@ void testIterator() {
 		assert(true);
 	}
 	assert(count == 50);
-
 }
 
-void testMix()
-{
+void testMix() {
 	cout << "Test mix" << endl;
 	Set s;
 	int first = 11;
@@ -260,12 +255,10 @@ void testMix()
 		assert(s.search(first) == true);
 		assert(s.remove(first) == true);
 		first = (first + 7) % 11111;
-
 	}
 }
 
-
-void testQuantity() {//add lots of elements
+void testQuantity() {  // add lots of elements
 	cout << "Test quantity" << endl;
 	Set s;
 	for (int i = 10; i >= 1; i--) {
@@ -286,7 +279,7 @@ void testQuantity() {//add lots of elements
 		it.next();
 	}
 	assert(it.valid() == false);
-	for (int i = 0; i < 10; i++) { //delete existing and inexistent elements
+	for (int i = 0; i < 10; i++) {  // delete existing and inexistent elements
 		for (int j = 40000; j >= -40000; j--) {
 			s.remove(j);
 		}
@@ -294,8 +287,7 @@ void testQuantity() {//add lots of elements
 	assert(s.size() == 0);
 }
 
-
-// we don't know how the set is represented and in which order the elements are stored or printed, we can only test general thing
+// we don't know how the set is represented and in which order the elements are stored or printed, we can only test general things
 void testAllExtended() {
 	testCreate();
 	testAdd();
@@ -303,9 +295,4 @@ void testAllExtended() {
 	testIterator();
 	testMix();
 	testQuantity();
-
 }
-
-
-
-
