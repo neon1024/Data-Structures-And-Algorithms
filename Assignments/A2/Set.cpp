@@ -26,8 +26,8 @@ bool Set::add(TElem element) {
         this->head = new Node;
         this->head->element = element;
         this->tail = this->head;
-        this->tail->next = nullptr;
         this->head->next = this->tail;
+        this->tail->next = nullptr;
 
         this->length++;
 
@@ -108,12 +108,12 @@ bool Set::isEmpty() const {
 }
 
 Set::~Set() {
-	//TODO - Implementation
-    while(this->head) {
-        Node* deletedNode = this->head;
-        this->head = this->head->next;
-        delete deletedNode;
-    }
+	// TODO - Implementation
+//    while(this->head) {
+//        Node* deletedNode = this->head;
+//        this->head = this->head->next;
+//        delete deletedNode;
+//    }
 }
 
 SetIterator Set::iterator() const {
