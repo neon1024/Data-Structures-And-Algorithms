@@ -22,22 +22,21 @@ const TElem Set::getElementAt(int position) {
 }
 
 bool Set::add(TElem element) {
-    if(this->head == nullptr) {
-        this->head = new Node;
-        this->head->element = element;
-        this->tail = this->head;
-        this->head->next = this->tail;
-        this->tail->next = nullptr;
-
-        this->length++;
-
-        return true;
-    }
-
-    if(this->search(element) == false) {
+    if(!this->search(element)) {
         Node* node = new Node;
         node->element = element;
         node->next = nullptr;
+
+        if(this->head == nullptr) {
+            this->head = node;
+            this->head->next = this->tail;
+            this->tail = node;
+            this->tail->next = nullptr;
+
+            this->length++;
+
+            return true;
+        }
 
         this->tail->next = node;
         this->tail = node;
