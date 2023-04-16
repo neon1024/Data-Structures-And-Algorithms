@@ -11,7 +11,6 @@ private:
 
 	SetIterator(const Set& s);
 
-	// TODO - Representation
     int currentPosition;
 
 public:

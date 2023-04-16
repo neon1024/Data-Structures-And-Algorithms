@@ -13,7 +13,6 @@ class Set {
     private:
 		// TODO - Representation
         int length;
-        int capacity;
 
         struct Node {
             TElem element;

@@ -1,6 +1,6 @@
 #include "SetIterator.h"
 #include "Set.h"
-
+#include <exception>
 
 SetIterator::SetIterator(const Set& m) : set(m) {
     this->currentPosition = 0;
@@ -11,16 +11,19 @@ void SetIterator::first() {
 }
 
 void SetIterator::next() {
+    if(!this->valid()) {
+        throw std::exception();
+    }
+
     this->currentPosition++;
 }
 
 TElem SetIterator::getCurrent() {
-	// TODO - Implementation
-    if(this->valid()) {
-        return this->set.getElementAt(this->currentPosition);
+    if(!this->valid()) {
+        throw std::exception();
     }
 
-	return NULL_TELEM;
+    return this->set.getElementAt(this->currentPosition);
 }
 
 bool SetIterator::valid() const {

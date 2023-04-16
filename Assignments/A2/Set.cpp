@@ -2,10 +2,7 @@
 #include "SetITerator.h"
 
 Set::Set() {
-	//TODO - Implementation
-
     this->length = 0;
-    this->capacity = 0;
 
     this->head = nullptr;
     this->tail = nullptr;
@@ -26,60 +23,76 @@ const TElem Set::getElementAt(int position) {
 
 bool Set::add(TElem element) {
     if(this->head == nullptr) {
-        Node *node = new Node;
-        node->element = element;
-        this->head = node;
-        this->tail = node;
-        node->next = nullptr;
+        this->head = new Node;
+        this->head->element = element;
+        this->tail = this->head;
+        this->head->next = this->tail;
+        this->tail->next = nullptr;
+
+        this->length++;
+
         return true;
     }
 
     if(this->search(element) == false) {
         Node* node = new Node;
         node->element = element;
+        node->next = nullptr;
+
         this->tail->next = node;
         this->tail = node;
+
+        this->length++;
+
         return true;
     }
 
-	return false;
+    return false;
 }
 
 bool Set::remove(TElem element) {
-	//TODO - Implementation
-    Node* currentNode = this->head->next;
+    Node* currentNode = this->head;
     Node* previousNode = this->head;
+    bool removed{false};
 
-    if(previousNode and previousNode->element == element) {
-        delete previousNode;
-        this->head = nullptr;
-
-        return true;
+    if(this->head == nullptr) {
+        return false;
     }
 
-    while(currentNode != nullptr) {
+    currentNode = currentNode->next;
+
+    while(currentNode) {
         if(currentNode->element == element) {
+            Node* deletedNode = currentNode;
             previousNode->next = currentNode->next;
-            delete currentNode;
-
-            return true;
+            currentNode = currentNode->next;
+            delete deletedNode;
+            this->length--;
+            removed = true;
+        } else {
+            previousNode = currentNode;
+            currentNode = currentNode->next;
         }
-
-        currentNode = currentNode->next;
-        previousNode = previousNode->next;
     }
 
-	return false;
+    if(this->head->element == element) {
+        Node* deletedNode = head;
+        this->head = this->head->next;
+        delete deletedNode;
+        this->length--;
+        removed = true;
+    }
+
+    return removed;
 }
 
 bool Set::search(TElem element) const {
 	Node* currentNode = this->head;
 
-    while(currentNode != nullptr) {
+    while(currentNode) {
         if(currentNode->element == element) {
             return true;
         }
-
         currentNode = currentNode->next;
     }
 
