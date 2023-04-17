@@ -22,32 +22,20 @@ const TElem Set::getElementAt(int position) {
 }
 
 bool Set::add(TElem element) {
-    if(!this->search(element)) {
+    if (!this->search(element)) {
         Node* node = new Node;
         node->element = element;
         node->next = nullptr;
 
-        if(this->head == nullptr) {
-//            this->head = node;
-//            this->head->next = this->tail;
-//            this->tail = node;
-//            this->tail->next = nullptr;
-
+        if (this->head == nullptr) {
             this->head = node;
             this->tail = node;
-            this->head->next = this->tail;
-            this->tail->next = nullptr;
-            
-            this->length++;
-
-            return true;
+        } else {
+            this->tail->next = node;
+            this->tail = node;
         }
 
-        this->tail->next = node;
-        this->tail = node;
-
         this->length++;
-
         return true;
     }
 
@@ -112,19 +100,14 @@ bool Set::isEmpty() const {
 }
 
 Set::~Set() {
-    // TODO - Implementation
-
+    // TODO: the destructor gets called multiple times for the same instance
 //    Node* currentNode = this->head;
-//
-//    this->head = nullptr;
 //
 //    while(currentNode) {
 //        Node* nextNode = currentNode->next;
 //        delete currentNode;
 //        currentNode = nextNode;
 //    }
-//
-//    this->tail = nullptr;
 }
 
 SetIterator Set::iterator() const {

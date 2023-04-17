@@ -1,6 +1,7 @@
 #include "SetIterator.h"
 #include "Set.h"
 #include <exception>
+#include <iostream>
 
 SetIterator::SetIterator(const Set& m) : set(m) {
     this->currentPosition = 0;

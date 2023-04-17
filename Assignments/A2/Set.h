@@ -11,7 +11,6 @@ class Set {
 	friend class SetIterator;
 
     private:
-		// TODO - Representation
         int length;
 
         struct Node {

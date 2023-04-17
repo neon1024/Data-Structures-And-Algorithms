@@ -9,11 +9,12 @@ private:
 	// DO NOT CHANGE THIS PART
     Set set;
 
-	SetIterator(const Set& s);
+
 
     int currentPosition;
 
 public:
+    SetIterator(const Set& s);
 	void first();
 	void next();
 	TElem getCurrent();
