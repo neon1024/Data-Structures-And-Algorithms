@@ -9,8 +9,6 @@ private:
 	// DO NOT CHANGE THIS PART
     Set set;
 
-
-
     int currentPosition;
 
 public:
