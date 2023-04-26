@@ -4,7 +4,7 @@
 #include <iostream>
 
 SetIterator::SetIterator(const Set& m) : set(m) {
-    this->currentPosition = 0;
+     this->currentPosition = 0;
 }
 
 void SetIterator::first() {
@@ -35,4 +35,16 @@ TElem SetIterator::getCurrent() {
 
 bool SetIterator::valid() const {
     return this->currentPosition < this->set.size();
+}
+
+void SetIterator::jumpForward(int k) {
+    if(! this->valid()) {
+        throw std::exception();
+    }
+
+    if(k <= 0) {
+        throw std::exception();
+    }
+
+    this->currentPosition+=k;
 }
