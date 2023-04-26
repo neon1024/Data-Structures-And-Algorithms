@@ -9,7 +9,14 @@ private:
 	// DO NOT CHANGE THIS PART
     Set set;
 
-    int currentPosition;
+    // int currentPosition;
+
+    struct Node {
+        TElem element;
+        struct Node* next;
+    };
+
+    Node* currentNode;
 
 public:
     SetIterator(const Set& s);
