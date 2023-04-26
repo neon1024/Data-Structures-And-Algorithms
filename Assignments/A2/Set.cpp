@@ -9,6 +9,12 @@ Set::Set() {
 }
 
 const TElem Set::getElementAt(int position) {
+    // Time Complexity:
+    // Best Case: Theta(1)
+    // Average Case: Theta(n)
+    // Worst Case: Theta(n)
+    // Overall: O(n)
+
     Node* currentNode = this->head;
 
     int currentPosition = 0;
@@ -22,6 +28,12 @@ const TElem Set::getElementAt(int position) {
 }
 
 bool Set::add(TElem element) {
+    // Time Complexity:
+    // Best Case: Theta(1)
+    // Average Case: Theta(n)
+    // Worst Case: Theta(n)
+    // Overall: O(n)
+
     if (!this->search(element)) {
         Node* node = new Node;
         node->element = element;
@@ -43,6 +55,12 @@ bool Set::add(TElem element) {
 }
 
 bool Set::remove(TElem element) {
+    // Time Complexity:
+    // Best Case: Theta(1)
+    // Average Case: Theta(n)
+    // Worst Case: Theta(n)
+    // Overall: O(n)
+
     Node* currentNode = this->head;
     Node* previousNode = this->head;
     bool removed{false};
@@ -79,6 +97,12 @@ bool Set::remove(TElem element) {
 }
 
 bool Set::search(TElem element) const {
+    // Time Complexity:
+    // Best Case: Theta(1)
+    // Average Case: Theta(n)
+    // Worst Case: Theta(n)
+    // Overall: O(n)
+
 	Node* currentNode = this->head;
 
     while(currentNode) {

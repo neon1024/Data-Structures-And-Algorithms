@@ -20,6 +20,12 @@ void SetIterator::next() {
 }
 
 TElem SetIterator::getCurrent() {
+    // Time Complexity:
+    // Best Case: Theta(1)
+    // Average Case: Theta(n)
+    // Worst Case: Theta(n)
+    // Overall: O(n)
+
     if(!this->valid()) {
         throw std::exception();
     }
