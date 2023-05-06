@@ -27,6 +27,9 @@ class Set {
         // implicit constructor
         Set();
 
+        // TODO copy constructor
+        Set(const Set& set);
+
         // adds an element to the set
 		// returns true if the element was added, false otherwise (if the element was already in the set)
         bool add(TElem e);

@@ -125,15 +125,50 @@ bool Set::isEmpty() const {
 
 Set::~Set() {
     // TODO: the destructor gets called multiple times for the same instance
-//    Node* currentNode = this->head;
-//
-//    while(currentNode) {
-//        Node* nextNode = currentNode->next;
-//        delete currentNode;
-//        currentNode = nextNode;
-//    }
+    Node* currentNode = this->head;
+
+    while(currentNode) {
+        Node* nextNode = currentNode->next;
+        delete currentNode;
+        currentNode = nextNode;
+    }
 }
 
 SetIterator Set::iterator() const {
 	return SetIterator(*this);
+}
+
+Set::Set(const Set &set) {
+    this->length = set.length;
+
+    Node* current = set.head;
+    Node* previous = nullptr;
+
+    if(current == nullptr) {
+        this->head = nullptr;
+    }
+
+    while(current != nullptr) {
+        Node* new_node = new Node;
+
+        new_node->element = current->element;
+
+        if(current == set.head) {
+            this->head = new_node;
+        }
+
+        if(previous != nullptr) {
+            previous->next = new_node;
+        }
+
+        previous = new_node;
+
+        current = current->next;
+    }
+
+    if(previous != nullptr) {
+        previous->next = nullptr;
+    }
+
+    this->tail = previous;
 }
