@@ -18,4 +18,3 @@ public:
 	bool valid() const;
    	TElem getCurrent() const;
 };
-
