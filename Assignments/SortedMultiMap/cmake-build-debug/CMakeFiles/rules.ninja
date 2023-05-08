@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files\JetBrains\CLion 2022.3\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\MSI\OneDrive\Desktop\SortedMultiMap -BC:\Users\MSI\OneDrive\Desktop\SortedMultiMap\cmake-build-debug
+  command = "C:\Program Files\JetBrains\CLion 2022.3\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\MSI\OneDrive\Desktop\Coding-Spaces\UBB-Coding-Space\Data-Structures-and-Algorithms\Assignments\SortedMultiMap -BC:\Users\MSI\OneDrive\Desktop\Coding-Spaces\UBB-Coding-Space\Data-Structures-and-Algorithms\Assignments\SortedMultiMap\cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

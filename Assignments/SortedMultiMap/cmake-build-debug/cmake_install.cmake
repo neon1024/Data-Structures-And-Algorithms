@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/MSI/OneDrive/Desktop/SortedMultiMap
+# Install script for directory: C:/Users/MSI/OneDrive/Desktop/Coding-Spaces/UBB-Coding-Space/Data-Structures-and-Algorithms/Assignments/SortedMultiMap
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/MSI/OneDrive/Desktop/SortedMultiMap/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/MSI/OneDrive/Desktop/Coding-Spaces/UBB-Coding-Space/Data-Structures-and-Algorithms/Assignments/SortedMultiMap/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
