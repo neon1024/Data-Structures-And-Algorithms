@@ -57,7 +57,7 @@ vector<TValue> SortedMultiMap::removeKey(TKey key) {
 ///Total Complexity: O((this->length)^2)
 
 void SortedMultiMap::add(TKey key, TValue value) {
-    // check if we reached the maximum capacity, and in this case we do a resize
+    // resize if maximum capacity reached
     if(this->length == this->capacity)
         this->resize();
 
@@ -155,14 +155,14 @@ void SortedMultiMap::add(TKey key, TValue value) {
 ///Worst case: Theta(this->length)
 ///Average Case: O(this->length) => Total complexity: O(this->length)
 
-vector<TValue> SortedMultiMap::search(TKey c) const {
+vector<TValue> SortedMultiMap::search(TKey key) const {
     vector<TValue> values;
+
 	int CurrentElement = this->head;
+
 	while(CurrentElement != -1){
-	    if(this->relation(this->DLLANodes[CurrentElement].info.first, c))
-        {
-	        if(this->DLLANodes[CurrentElement].info.first == c)
-            {
+	    if(this->relation(this->DLLANodes[CurrentElement].info.first, key)) {
+	        if(this->DLLANodes[CurrentElement].info.first == key) {
                 values.push_back(this->DLLANodes[CurrentElement].info.second);
             }
             CurrentElement = this->DLLANodes[CurrentElement].next;

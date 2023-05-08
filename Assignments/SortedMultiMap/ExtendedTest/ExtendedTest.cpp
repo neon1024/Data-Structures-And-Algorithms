@@ -1,5 +1,5 @@
 #include <exception>
-#include <assert.h>
+#include <cassert>
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -9,20 +9,12 @@
 
 using namespace std;
 
-bool asc(TKey c1, TKey c2) {
-	if (c1 <= c2) {
-		return true;
-	} else {
-		return false;
-	}
+bool asc(TKey key1, TKey key2) {
+	return key1 <= key2;
 }
 
-bool desc(TKey c1, TKey c2) {
-	if (c1 >= c2) {
-		return true;
-	} else {
-		return false;
-	}
+bool desc(TKey key1, TKey key2) {
+	return key1 >= key2;
 }
 
 bool rel3(TKey c1, TKey c2) {
