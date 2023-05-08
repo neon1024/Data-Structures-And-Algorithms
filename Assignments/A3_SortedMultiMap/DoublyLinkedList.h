@@ -1,7 +1,7 @@
 #pragma once
 
 struct DLLANode {
-    ;
+    int data;
     int next;
     int prev;
 };
@@ -19,4 +19,10 @@ public:
     explicit DoublyLinkedList(int capacity);
 
     ~DoublyLinkedList();
+
+    void insert(int index, int data);
+    void remove(int index);
+    int get_element(int index) const;
+    int size() const;
+    bool empty() const;
 };

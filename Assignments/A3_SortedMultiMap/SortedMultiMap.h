@@ -22,7 +22,6 @@ private:
 
 
 public:
-
     // constructor
     SortedMultiMap(Relation r);
 
