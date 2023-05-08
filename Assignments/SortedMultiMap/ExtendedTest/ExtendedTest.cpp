@@ -1,5 +1,5 @@
 #include <exception>
-#include <cassert>
+#include <assert.h>
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -95,6 +95,26 @@ void testRelations() {
 }
 
 
+void testRemoveKey(){
+    cout<<"Test remove key!"<<endl;
+    SortedMultiMap smm = SortedMultiMap(asc);
+    assert(smm.size() == 0);
+    assert(smm.isEmpty());
+    smm.add(1,2);
+    smm.add(1,3);
+    smm.add(2,4);
+    smm.add(1,15);
+    smm.add(1,20);
+    smm.add(3,1);
+    vector<TValue> values = smm.removeKey(1);
+    assert(values[0] == 20);
+    assert(values[1] == 15);
+    assert(values[2] == 3);
+    assert(values[3] == 2);
+    assert(values.size() == 4);
+    assert(smm.size() == 2);
+}
+
 void testCreate() {
 	cout << "Test create" << endl;
 	SortedMultiMap smm = SortedMultiMap(asc);
@@ -118,9 +138,10 @@ void testSearch(Relation r) {
 	int kMin = 0;
 	int kMax = 10;
 	for (int i = kMin; i <= kMax; i++) {
-			smm.add(i, i + 1);
-			smm.add(i, i + 2);
-	}
+        smm.add(i, i + 1);
+        smm.add(i, i + 2);
+    }
+
 	int intervalDim = 10;
 	testIteratorSteps(smm);
 	for (int i = kMin; i <= kMax; i++) {
@@ -255,4 +276,5 @@ void testAllExtended() {
 	testRemove();
 	testIterator();
 	testRelations();
+	testRemoveKey();
 }
