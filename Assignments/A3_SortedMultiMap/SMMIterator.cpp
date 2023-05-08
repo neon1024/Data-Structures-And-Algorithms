@@ -22,5 +22,3 @@ TElem SMMIterator::getCurrent() const{
 	//TODO - Implementation
 	return NULL_TELEM;
 }
-
-

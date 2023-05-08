@@ -2,7 +2,6 @@
 
 #include "SortedMultiMap.h"
 
-
 class SMMIterator{
 	friend class SortedMultiMap;
 private:
