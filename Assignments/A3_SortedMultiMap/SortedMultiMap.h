@@ -16,10 +16,9 @@ typedef bool(*Relation)(TKey, TKey);
 class SortedMultiMap {
 	friend class SMMIterator;
 private:
-		//TODO - Representation
-        Relation relation;
-        int number_of_elements;
-
+    //TODO - Representation
+    Relation relation;
+    int number_of_pairs;
 
 
 public:

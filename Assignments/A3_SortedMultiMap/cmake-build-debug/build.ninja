@@ -94,6 +94,15 @@ build CMakeFiles/A3_SortedMultiMap.dir/SortedMultiMap.cpp.obj: CXX_COMPILER__A3_
   TARGET_COMPILE_PDB = CMakeFiles\A3_SortedMultiMap.dir\
   TARGET_PDB = A3_SortedMultiMap.pdb
 
+build CMakeFiles/A3_SortedMultiMap.dir/DoublyLinkedList.cpp.obj: CXX_COMPILER__A3_SortedMultiMap_Debug C$:/Users/MSI/OneDrive/Desktop/Coding-Spaces/UBB-Coding-Space/Data-Structures-and-Algorithms/Assignments/A3_SortedMultiMap/DoublyLinkedList.cpp || cmake_object_order_depends_target_A3_SortedMultiMap
+  DEP_FILE = CMakeFiles\A3_SortedMultiMap.dir\DoublyLinkedList.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++14
+  INCLUDES = -IC:/Users/MSI/OneDrive/Desktop/Coding-Spaces/UBB-Coding-Space/Data-Structures-and-Algorithms/Assignments/A3_SortedMultiMap/.
+  OBJECT_DIR = CMakeFiles\A3_SortedMultiMap.dir
+  OBJECT_FILE_DIR = CMakeFiles\A3_SortedMultiMap.dir
+  TARGET_COMPILE_PDB = CMakeFiles\A3_SortedMultiMap.dir\
+  TARGET_PDB = A3_SortedMultiMap.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target A3_SortedMultiMap
@@ -102,7 +111,7 @@ build CMakeFiles/A3_SortedMultiMap.dir/SortedMultiMap.cpp.obj: CXX_COMPILER__A3_
 #############################################
 # Link the executable A3_SortedMultiMap.exe
 
-build A3_SortedMultiMap.exe: CXX_EXECUTABLE_LINKER__A3_SortedMultiMap_Debug CMakeFiles/A3_SortedMultiMap.dir/App.cpp.obj CMakeFiles/A3_SortedMultiMap.dir/ExtendedTest.cpp.obj CMakeFiles/A3_SortedMultiMap.dir/ShortTest.cpp.obj CMakeFiles/A3_SortedMultiMap.dir/SMMIterator.cpp.obj CMakeFiles/A3_SortedMultiMap.dir/SortedMultiMap.cpp.obj
+build A3_SortedMultiMap.exe: CXX_EXECUTABLE_LINKER__A3_SortedMultiMap_Debug CMakeFiles/A3_SortedMultiMap.dir/App.cpp.obj CMakeFiles/A3_SortedMultiMap.dir/ExtendedTest.cpp.obj CMakeFiles/A3_SortedMultiMap.dir/ShortTest.cpp.obj CMakeFiles/A3_SortedMultiMap.dir/SMMIterator.cpp.obj CMakeFiles/A3_SortedMultiMap.dir/SortedMultiMap.cpp.obj CMakeFiles/A3_SortedMultiMap.dir/DoublyLinkedList.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\A3_SortedMultiMap.dir

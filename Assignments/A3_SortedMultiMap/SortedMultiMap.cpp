@@ -7,7 +7,7 @@ using namespace std;
 
 SortedMultiMap::SortedMultiMap(Relation r) {
 	this->relation = r;
-    this->number_of_elements = 0;
+    this->number_of_pairs = 0;
 
 }
 
