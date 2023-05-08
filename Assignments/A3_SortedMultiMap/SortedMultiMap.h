@@ -15,15 +15,15 @@ typedef bool(*Relation)(TKey, TKey);
 
 class SortedMultiMap {
 	friend class SMMIterator;
-    private:
+private:
 		//TODO - Representation
 
-    public:
+public:
 
     // constructor
     SortedMultiMap(Relation r);
 
-        // TODO Copy Constructor
+    // TODO Copy Constructor
 
 	//adds a new key value pair to the sorted multi map
     void add(TKey c, TValue v);
