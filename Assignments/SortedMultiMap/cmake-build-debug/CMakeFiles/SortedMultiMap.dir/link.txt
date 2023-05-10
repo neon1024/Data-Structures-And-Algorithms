@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2022.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\SortedMultiMap.dir/objects.a
+C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\SortedMultiMap.dir/objects.a @CMakeFiles\SortedMultiMap.dir\objects1.rsp
+C:\msys64\mingw64\bin\c++.exe -g -Wl,--whole-archive CMakeFiles\SortedMultiMap.dir/objects.a -Wl,--no-whole-archive -o SortedMultiMap.exe -Wl,--out-implib,libSortedMultiMap.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\SortedMultiMap.dir\linklibs.rsp

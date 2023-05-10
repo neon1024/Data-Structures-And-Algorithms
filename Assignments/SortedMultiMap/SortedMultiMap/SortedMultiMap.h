@@ -11,6 +11,7 @@ typedef std::pair<TKey, TValue> TElem;
 #define NULL_TELEM pair<TKey, TValue>(-111111, -111111);
 using namespace std;
 class SMMIterator;
+class ValueIterator;
 typedef bool(*Relation)(TKey, TKey);
 
 struct DLLNode{
@@ -21,6 +22,7 @@ struct DLLNode{
 
 class SortedMultiMap {
 	friend class SMMIterator;
+    friend class ValueIterator;
 private:
     Relation relation;
     int head;
@@ -36,14 +38,17 @@ private:
 public:
     vector<TValue> removeKey(TKey key);
 
+    //returns the values belonging to a given key
+    vector<TValue> search(TKey c) const;
+
     // constructor
     explicit SortedMultiMap(Relation r);
 
 	//adds a new key value pair to the sorted multi map
     void add(TKey c, TValue v);
 
-	//returns the values belonging to a given key
-    vector<TValue> search(TKey c) const;
+    // returns the position of the key if it exists, -1 otherwise
+    TKey search_key(TKey key) const;
 
 	//removes a key value pair from the sorted multimap
 	//returns true if the pair was removed (it was part of the multimap), false if nothing is removed
@@ -55,8 +60,10 @@ public:
     //verifies if the sorted multi map is empty
     bool isEmpty() const;
 
-    // returns an iterator for the sorted multimap. The iterator will returns the pairs as required by the relation (given to the constructor)	
+    // returns an iterator for the sorted multimap. The iterator will returns the pairs as required by the relation (given to the constructor)
     SMMIterator iterator() const;
+
+    ValueIterator iterator(TKey key);
 
     // destructor
     ~SortedMultiMap();

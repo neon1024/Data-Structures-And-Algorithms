@@ -2,14 +2,13 @@
 
 #include "SortedMultiMap.h"
 
-
 class SMMIterator{
 	friend class SortedMultiMap;
 private:
 	//DO NOT CHANGE THIS PART
 	const SortedMultiMap& map;
 	int currentElement;
-    SMMIterator(const SortedMultiMap& map);
+    explicit SMMIterator(const SortedMultiMap& map);
 
 public:
 	void first();

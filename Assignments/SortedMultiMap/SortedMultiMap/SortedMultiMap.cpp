@@ -1,4 +1,5 @@
 #include "SMMIterator.h"
+#include "../ValueIterator/ValueIterator.h"
 #include "SortedMultiMap.h"
 #include <iostream>
 #include <vector>
@@ -135,6 +136,7 @@ void SortedMultiMap::add(TKey key, TValue value) {
         int new_element = this->firstEmpty;
 
         this->firstEmpty = this->DLLANodes[this->firstEmpty].next;
+
         if(this->firstEmpty != -1)
             this->DLLANodes[this->firstEmpty].prev = -1;
 
@@ -160,7 +162,7 @@ vector<TValue> SortedMultiMap::search(TKey key) const {
 
 	int CurrentElement = this->head;
 
-	while(CurrentElement != -1){
+	while(CurrentElement != -1) {
 	    if(this->relation(this->DLLANodes[CurrentElement].info.first, key)) {
 	        if(this->DLLANodes[CurrentElement].info.first == key) {
                 values.push_back(this->DLLANodes[CurrentElement].info.second);
@@ -172,9 +174,25 @@ vector<TValue> SortedMultiMap::search(TKey key) const {
 	}
 	return values;
 }
+
+TKey SortedMultiMap::search_key(TKey key) const {
+    int CurrentElement = this->head;
+
+    while(CurrentElement != -1) {
+        if(this->relation(this->DLLANodes[CurrentElement].info.first, key)) {
+            if(this->DLLANodes[CurrentElement].info.first == key) {
+                return CurrentElement;
+            }
+            CurrentElement = this->DLLANodes[CurrentElement].next;
+        }
+        else
+            break;
+    }
+    return -1;
+}
 ///Best case: Theta(1)
-///Worst case: Theta(this->length)
-///Average Case: O(this->length) => Total complexity: O(this->length)
+///Worst case: Theta(length)
+///Average Case: O(length) => Total complexity: O(this->length)
 
 bool SortedMultiMap::remove(TKey key, TValue value) {
 	int current_element = this->head;
@@ -272,7 +290,7 @@ void SortedMultiMap::resize() {
     delete[] this->DLLANodes;
     this->DLLANodes = resized_array;
 }
-///Theta(capacity) We have two loops, one which go from 0 to capacity/2 and the other one which goes from capacity/2 until capacity
+///Theta(capacity)
 
 int SortedMultiMap::allocate() {
     int newElem = this->firstEmpty;
@@ -292,5 +310,9 @@ void SortedMultiMap::free(int position) {
     this->DLLANodes[position].prev = -1;
     this->DLLANodes[this->firstEmpty].prev = position;
     this->firstEmpty = position;
+}
+
+ValueIterator SortedMultiMap::iterator(TKey key) {
+    return ValueIterator{*this, key};
 }
 ///Theta(1)

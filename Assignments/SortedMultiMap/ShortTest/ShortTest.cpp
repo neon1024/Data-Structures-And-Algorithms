@@ -2,6 +2,7 @@
 
 #include "SortedMultiMap.h"
 #include "SMMIterator.h"
+#include "../ValueIterator/ValueIterator.h"
 #include <exception>
 #include <vector>
 #include <iostream>
@@ -37,5 +38,38 @@ void testAll(){
     while (it.valid()){
     	TElem e = it.getCurrent();
     	it.next();
+    }
+
+    // Bonus
+    SortedMultiMap smm1 = SortedMultiMap{relation1};
+
+    smm1.add(1, 1);
+    smm1.add(1, 2);
+    smm1.add(1, 3);
+    smm1.add(2, 10);
+    smm1.add(1, 4);
+    smm1.add(1, 5);
+    smm1.add(3, 11);
+
+    ValueIterator vi1 = smm1.iterator(1);
+
+    vi1.first();
+
+    while(vi1.valid()) {
+        TValue v1 = vi1.getCurrent();
+
+        std::cout << v1 << ' ';
+
+        vi1.next();
+    }
+
+    ValueIterator vi2 = smm1.iterator(0);
+
+    try {
+        vi2.next();
+
+        assert(false);
+    } catch(...) {
+        assert(true);
     }
 }

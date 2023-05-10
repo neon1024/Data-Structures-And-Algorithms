@@ -17,4 +17,4 @@ add_executable(SortedMultiMap
         SMMIterator/SMMIterator.h
         SortedMultiMap/SortedMultiMap.cpp
         SortedMultiMap/SortedMultiMap.h
-        App.cpp)
+        App.cpp ValueIterator/ValueIterator.cpp ValueIterator/ValueIterator.h)

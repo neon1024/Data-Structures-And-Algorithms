@@ -30,5 +30,3 @@ TElem SMMIterator::getCurrent() const{
     return this->map.DLLANodes[this->currentElement].info;
 }
 ///Theta(1)
-
-
