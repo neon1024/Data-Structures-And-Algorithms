@@ -1,0 +1,7 @@
+# ninja log v5
+18	128	7063088689556851	CMakeFiles/A4_12_SortedBag.dir/SortedBag.cpp.obj	3dc74703af0c25
+26	154	7063088689822521	CMakeFiles/A4_12_SortedBag.dir/ShortTest.cpp.obj	e2b41f367b7b84b8
+41	177	7063088690047988	CMakeFiles/A4_12_SortedBag.dir/SortedBagIterator.cpp.obj	da3255cc7b838537
+10	354	7063088691828114	CMakeFiles/A4_12_SortedBag.dir/App.cpp.obj	938fb2e527d91570
+0	386	7063088692153541	CMakeFiles/A4_12_SortedBag.dir/ExtendedTest.cpp.obj	6e7553d835225b23
+386	552	7063088693791971	A4_12_SortedBag.exe	a2882edf676cf815
