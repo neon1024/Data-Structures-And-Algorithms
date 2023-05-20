@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "A4_12_SortedBag",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "A4_12_SortedBag::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-A4_12_SortedBag-Debug-7ff57e963316bf619e66.json",
+					"name" : "A4_12_SortedBag",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/MSI/OneDrive/Desktop/Coding-Spaces/UBB-Coding-Space/Data-Structures-and-Algorithms/Assignments/A4_12_SortedBag/cmake-build-debug",
+		"source" : "C:/Users/MSI/OneDrive/Desktop/Coding-Spaces/UBB-Coding-Space/Data-Structures-and-Algorithms/Assignments/A4_12_SortedBag"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
