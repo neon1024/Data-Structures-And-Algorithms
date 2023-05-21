@@ -7,6 +7,22 @@ SortedBag::SortedBag(Relation r, int capacity) {
     this->number_of_elements = 0;
 
     this->elements = new TComp[this->capacity];
+
+    for(int i = 0; i < this->capacity; ++i) {
+        this->elements[i] = NULL_TCOMP;
+    }
+}
+
+SortedBag::SortedBag(SortedBag& sorted_bag) {
+    this->number_of_elements = sorted_bag.number_of_elements;
+    this->capacity = sorted_bag.capacity;
+    this->relation = sorted_bag.relation;
+
+    this->elements = new TComp[this->capacity];
+
+    for(int i = 0; i < this->capacity; ++i) {
+        this->elements[i] = sorted_bag.elements[i];
+    }
 }
 
 void SortedBag::add(TComp element) {
@@ -107,4 +123,72 @@ int SortedBag::hash2(TComp element) const {
      * k: element, integer
      */
     return 1 + element % (this->capacity - 1);
+}
+
+void SortedBag::resize() {
+    int new_capacity = this->next_prime_number(2 * this->capacity);
+
+    auto new_elements = new TComp[new_capacity];
+
+    for(int i = 0; i < this->capacity; ++i) {
+        new_elements[i] = this->elements[i];
+    }
+
+    for(int i = this->capacity; i < new_capacity; ++i) {
+        new_elements[i] = NULL_TCOMP;
+    }
+
+    delete[] this->elements;
+    this->capacity = new_capacity;
+    this->elements = new_elements;
+}
+
+void SortedBag::add_rehash(TComp* new_elements, TComp element) {
+    int i = 0;
+    int position = this->hash(element, i);
+
+    while(i < this->capacity and new_elements[i] != NULL_TCOMP) {
+        ++i;
+        position = this->hash(element, i);
+    }
+
+    new_elements[position] = element;
+}
+
+void SortedBag::rehash() {
+    // make a new dynamic array
+    auto new_elements = new TComp[this->capacity];
+
+    for(int i = 0; i < this->capacity; ++i) {
+        new_elements[i] = this->elements[i];
+    }
+
+    // traverse the original dynamic array, add each element from the original to the new one
+    for(int i = 0; i < this->capacity; ++i) {
+        this->add_rehash(new_elements, this->elements[i]);
+    }
+
+    // destroy the old dynamic array and link the new dynamic array
+    delete[] this->elements;
+    this->elements = new_elements;
+}
+
+bool SortedBag::is_prime(int number) {
+    if(number < 2) {
+        return false;
+    }
+
+    for(int d = 2; d*d <= number; ++d) {
+        if(number % d == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int SortedBag::next_prime_number(int number) {
+    while(! this->is_prime(number++)) {}
+
+    return number;
 }

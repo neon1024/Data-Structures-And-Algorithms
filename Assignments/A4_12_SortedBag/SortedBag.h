@@ -36,12 +36,15 @@ private:
 
     void resize();
     void rehash();
+    int next_prime_number(int number);
+    bool is_prime(int number);
+    void add_rehash(TComp* new_elements, TComp element);
 
 public:
 	// constructor
 	explicit SortedBag(Relation r, int capacity=2);
 
-    // TODO copy constructor
+    SortedBag(SortedBag& sorted_bag);
 
 	// adds an element to the sorted bag
 	void add(TComp e);
