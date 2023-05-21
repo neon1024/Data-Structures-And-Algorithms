@@ -63,12 +63,13 @@ bool SortedBag::remove(TComp element) {
 }
 
 bool SortedBag::search(TComp element) const {
-    int current_position = 0;
-    while(current_position < this->capacity and this->elements[element] != element) {
-        ++current_position;
+    for(int i = 0; i < this->capacity; ++i) {
+        if(this->elements[i] == element) {
+            return true;
+        }
     }
 
-    return current_position != this->capacity;
+    return false;
 }
 
 int SortedBag::nrOccurrences(TComp element) const {
@@ -162,12 +163,19 @@ void SortedBag::rehash() {
     auto new_elements = new TComp[this->capacity];
 
     for(int i = 0; i < this->capacity; ++i) {
-        new_elements[i] = this->elements[i];
+        new_elements[i] = NULL_TCOMP;
     }
 
     // traverse the original dynamic array, add each element from the original to the new one
     for(int i = 0; i < this->capacity; ++i) {
-        this->add_rehash(new_elements, this->elements[i]);
+        if(this->elements[i] != NULL_TCOMP and this->elements[i] != DELETED) {
+            this->add_rehash(new_elements, this->elements[i]);
+        }
+        else {
+            if(this->elements[i] == DELETED) {
+                new_elements[i] = DELETED;
+            }
+        }
     }
 
     // destroy the old dynamic array and link the new dynamic array

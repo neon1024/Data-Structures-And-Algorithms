@@ -11,9 +11,12 @@ private:
 	const SortedBag& sorted_bag;
 	explicit SortedBagIterator(const SortedBag& sorted_bag);
 
-	// TODO - Representation
+    Relation relation;
+	TComp* elements;
+    int current_position;
 
 public:
+    ~SortedBagIterator();
     void first();
     bool valid();
     TComp getCurrent();
