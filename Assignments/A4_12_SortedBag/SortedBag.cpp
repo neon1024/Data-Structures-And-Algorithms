@@ -1,53 +1,75 @@
 #include "SortedBag.h"
 #include "SortedBagIterator.h"
 
-SortedBag::SortedBag(Relation r) {
-	//TODO - Implementation
+SortedBag::SortedBag(Relation r, int capacity) {
+	this->relation = r;
+    this->capacity = capacity;
+    this->number_of_elements = 0;
+
+    this->elements = new TComp[this->capacity];
 }
 
-void SortedBag::add(TComp e) {
-	//TODO - Implementation
+void SortedBag::add(TComp element) {
+	int i = 0;
+    int position = this->hash(element, i);
+
+    while(i < this->capacity and this->elements[position] != NULL_TCOMP) {
+        ++i;
+        position = this->hash(element, i);
+    }
+
+    if(i == this->capacity) {
+        this->resize();
+        this->rehash();
+        this->add(element);
+    } else {
+        this->elements[position] = element;
+        this->number_of_elements++;
+    }
 }
 
+bool SortedBag::remove(TComp element) {
+	int current_position = 0;
+    // TODO this->elements[current_position] != element and this->elements[current_position] != DELETED
+    while(current_position < this->capacity and this->elements[current_position] != element) {
+        ++current_position;
+    }
 
-bool SortedBag::remove(TComp e) {
-	//TODO - Implementation
-	return false;
+    if(current_position == this->capacity) {
+        return false;
+    }
+
+    this->elements[current_position] = DELETED;
+    return true;
 }
 
-
-bool SortedBag::search(TComp elem) const {
-	//TODO - Implementation
-	return false;
+bool SortedBag::search(TComp element) const {
+    int current_position = 0;
+    
+    while(current_position < this->capacity and this->elements[element] != element)
 }
-
 
 int SortedBag::nrOccurrences(TComp elem) const {
 	//TODO - Implementation
 	return 0;
 }
 
-
-
 int SortedBag::size() const {
 	//TODO - Implementation
 	return 0;
 }
-
 
 bool SortedBag::isEmpty() const {
 	//TODO - Implementation
 	return false;
 }
 
-
 SortedBagIterator SortedBag::iterator() const {
 	return SortedBagIterator(*this);
 }
 
-
 SortedBag::~SortedBag() {
-	//TODO - Implementation
+	// TODO
 }
 
 int SortedBag::hash(TComp element, int i) const {

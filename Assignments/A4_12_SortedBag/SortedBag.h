@@ -15,7 +15,8 @@
 typedef int TComp;
 typedef TComp TElem;
 typedef bool(*Relation)(TComp, TComp);
-#define NULL_TCOMP -11111;
+#define NULL_TCOMP (-11111)
+#define DELETED (-1111111111)
 
 class SortedBagIterator;
 
@@ -27,18 +28,20 @@ private:
     int capacity;
     int number_of_elements;
 
+    Relation relation;
+
     int hash(TComp element, int i) const;
     int hash1(TComp element) const;
     int hash2(TComp element) const;
-
-    Relation relation;
 
     void resize();
     void rehash();
 
 public:
 	// constructor
-	explicit SortedBag(Relation r);
+	explicit SortedBag(Relation r, int capacity=2);
+
+    // TODO copy constructor
 
 	// adds an element to the sorted bag
 	void add(TComp e);
