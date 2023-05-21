@@ -23,7 +23,18 @@ class SortedBag {
 	friend class SortedBagIterator;
 
 private:
-	//TODO - Representation
+    TComp* elements;
+    int capacity;
+    int number_of_elements;
+
+    int hash(TComp element, int i) const;
+    int hash1(TComp element) const;
+    int hash2(TComp element) const;
+
+    Relation relation;
+
+    void resize();
+    void rehash();
 
 public:
 	// constructor
