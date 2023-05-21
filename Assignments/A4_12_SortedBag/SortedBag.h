@@ -44,6 +44,7 @@ public:
 	// constructor
 	explicit SortedBag(Relation r, int capacity=2);
 
+    // copy constructor
     SortedBag(SortedBag& sorted_bag);
 
 	// adds an element to the sorted bag

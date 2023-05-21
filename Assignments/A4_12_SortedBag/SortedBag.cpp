@@ -38,7 +38,8 @@ void SortedBag::add(TComp element) {
         this->resize();
         this->rehash();
         this->add(element);
-    } else {
+    }
+    else {
         this->elements[position] = element;
         this->number_of_elements++;
     }
@@ -46,6 +47,7 @@ void SortedBag::add(TComp element) {
 
 bool SortedBag::remove(TComp element) {
 	int current_position = 0;
+
     while(current_position < this->capacity and this->elements[current_position] != element) {
         ++current_position;
     }
