@@ -30,7 +30,6 @@ void SortedBag::add(TComp element) {
 
 bool SortedBag::remove(TComp element) {
 	int current_position = 0;
-    // TODO this->elements[current_position] != element and this->elements[current_position] != DELETED
     while(current_position < this->capacity and this->elements[current_position] != element) {
         ++current_position;
     }
@@ -40,28 +39,38 @@ bool SortedBag::remove(TComp element) {
     }
 
     this->elements[current_position] = DELETED;
+    this->number_of_elements--;
+
     return true;
 }
 
 bool SortedBag::search(TComp element) const {
     int current_position = 0;
-    
-    while(current_position < this->capacity and this->elements[element] != element)
+    while(current_position < this->capacity and this->elements[element] != element) {
+        ++current_position;
+    }
+
+    return current_position != this->capacity;
 }
 
-int SortedBag::nrOccurrences(TComp elem) const {
-	//TODO - Implementation
-	return 0;
+int SortedBag::nrOccurrences(TComp element) const {
+	int occurrences = 0;
+
+    for(int i = 0; i < this->capacity; ++i) {
+        if(this->elements[i] == element) {
+            ++occurrences;
+        }
+    }
+
+	return occurrences;
 }
 
 int SortedBag::size() const {
-	//TODO - Implementation
-	return 0;
+    return this->number_of_elements;
 }
 
 bool SortedBag::isEmpty() const {
-	//TODO - Implementation
-	return false;
+	return this->number_of_elements == 0;
 }
 
 SortedBagIterator SortedBag::iterator() const {
@@ -69,7 +78,7 @@ SortedBagIterator SortedBag::iterator() const {
 }
 
 SortedBag::~SortedBag() {
-	// TODO
+	delete[] this->elements;
 }
 
 int SortedBag::hash(TComp element, int i) const {
