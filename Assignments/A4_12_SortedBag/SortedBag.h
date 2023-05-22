@@ -16,7 +16,7 @@ typedef int TComp;
 typedef TComp TElem;
 typedef bool(*Relation)(TComp, TComp);
 #define NULL_TCOMP (-11111)
-#define DELETED (-1111111111)
+#define DELETED (-111111)
 
 class SortedBagIterator;
 

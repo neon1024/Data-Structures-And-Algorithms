@@ -35,8 +35,6 @@ SortedBagIterator::SortedBagIterator(const SortedBag& sorted_bag) : sorted_bag{s
     }
 
     this->current_position = 0;
-
-    std::cout << &this->sorted_bag << '\n';
 }
 
 TComp SortedBagIterator::getCurrent() {

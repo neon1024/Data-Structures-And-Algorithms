@@ -30,7 +30,7 @@ void SortedBag::add(TComp element) {
 	int i = 0;
     int position = this->hash(element, i);
 
-    while(i < this->capacity and this->elements[position] != NULL_TCOMP) {
+    while(i < this->capacity and this->elements[position] != NULL_TCOMP and this->elements[position] != DELETED) {
         ++i;
         position = this->hash(element, i);
     }
@@ -102,13 +102,14 @@ SortedBag::~SortedBag() {
 }
 
 int SortedBag::hash(TComp element, int i) const {
+    // TODO negative numbers
     /*
      * h(k,i) = (h1(k) + i*h2(k)) % m
      * m: this->capacity, prime number
      * k: element, integer
      * i: i, permutation
      */
-    return (this->hash1(element) + i * this->hash2(element)) % this->capacity;
+    return (this->hash1(abs(element)) + i * this->hash2(abs(element))) % this->capacity;
 }
 
 int SortedBag::hash1(TComp element) const {
@@ -151,7 +152,7 @@ void SortedBag::add_rehash(TComp* new_elements, TComp element) {
     int i = 0;
     int position = this->hash(element, i);
 
-    while(i < this->capacity and new_elements[i] != NULL_TCOMP) {
+    while(i < this->capacity and new_elements[position] != NULL_TCOMP and new_elements[position] != DELETED) {
         ++i;
         position = this->hash(element, i);
     }
