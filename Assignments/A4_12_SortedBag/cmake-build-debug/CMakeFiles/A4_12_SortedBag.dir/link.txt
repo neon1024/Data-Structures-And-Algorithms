@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2022.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\A4_12_SortedBag.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\A4_12_SortedBag.dir/objects.a @CMakeFiles\A4_12_SortedBag.dir\objects1.rsp
-C:\msys64\mingw64\bin\c++.exe -g -Wl,--whole-archive CMakeFiles\A4_12_SortedBag.dir/objects.a -Wl,--no-whole-archive -o A4_12_SortedBag.exe -Wl,--out-implib,libA4_12_SortedBag.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\A4_12_SortedBag.dir\linklibs.rsp

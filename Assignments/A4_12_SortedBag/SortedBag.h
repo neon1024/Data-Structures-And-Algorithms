@@ -38,7 +38,7 @@ private:
     void rehash();
     int next_prime_number(int number);
     bool is_prime(int number);
-    void add_rehash(TComp* new_elements, TComp element);
+    void rehash_add(TComp* new_elements, TComp element);
 
 public:
 	// constructor

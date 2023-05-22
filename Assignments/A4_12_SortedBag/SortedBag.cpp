@@ -47,27 +47,34 @@ void SortedBag::add(TComp element) {
 }
 
 bool SortedBag::remove(TComp element) {
-	int current_position = 0;
+    int i = 0;
+    int position = this->hash(element, i);
 
-    while(current_position < this->capacity and this->elements[current_position] != element) {
-        ++current_position;
+    while(i < this->capacity) {
+        if(this->elements[position] == element) {
+            this->elements[position] = DELETED;
+            this->number_of_elements--;
+            return true;
+        }
+
+        ++i;
+        position = this->hash(element, i);
     }
 
-    if(current_position == this->capacity) {
-        return false;
-    }
-
-    this->elements[current_position] = DELETED;
-    this->number_of_elements--;
-
-    return true;
+    return false;
 }
 
 bool SortedBag::search(TComp element) const {
-    for(int i = 0; i < this->capacity; ++i) {
-        if(this->elements[i] == element) {
+    int i = 0;
+    int position = this->hash(element, i);
+
+    while(i < this->capacity) {
+        if(this->elements[position] == element) {
             return true;
         }
+
+        ++i;
+        position = this->hash(element, i);
     }
 
     return false;
@@ -76,10 +83,16 @@ bool SortedBag::search(TComp element) const {
 int SortedBag::nrOccurrences(TComp element) const {
 	int occurrences = 0;
 
-    for(int i = 0; i < this->capacity; ++i) {
-        if(this->elements[i] == element) {
+    int i = 0;
+    int position = this->hash(element, i);
+
+    while(i < this->capacity) {
+        if(this->elements[position] == element) {
             ++occurrences;
         }
+
+        ++i;
+        position = this->hash(element, i);
     }
 
 	return occurrences;
@@ -148,7 +161,7 @@ void SortedBag::resize() {
     this->elements = new_elements;
 }
 
-void SortedBag::add_rehash(TComp* new_elements, TComp element) {
+void SortedBag::rehash_add(TComp* new_elements, TComp element) {
     int i = 0;
     int position = this->hash(element, i);
 
@@ -171,7 +184,7 @@ void SortedBag::rehash() {
     // traverse the original dynamic array, add each element from the original to the new one
     for(int i = 0; i < this->capacity; ++i) {
         if(this->elements[i] != NULL_TCOMP and this->elements[i] != DELETED) {
-            this->add_rehash(new_elements, this->elements[i]);
+            this->rehash_add(new_elements, this->elements[i]);
         }
         else {
             if(this->elements[i] == DELETED) {
@@ -197,6 +210,10 @@ bool SortedBag::is_prime(int number) {
     }
 
     return true;
+
+    bool prime[100];  // dynamically resize it with m and fill it with 1
+
+    for()
 }
 
 int SortedBag::next_prime_number(int number) {
