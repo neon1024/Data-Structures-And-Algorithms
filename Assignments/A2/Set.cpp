@@ -138,7 +138,7 @@ SetIterator Set::iterator() const {
 	return SetIterator(*this);
 }
 
-Set::Set(const Set &set) {
+Set::Set(const Set& set) {
     this->length = set.length;
 
     Node* current = set.head;

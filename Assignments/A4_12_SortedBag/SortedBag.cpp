@@ -1,5 +1,6 @@
 #include "SortedBag.h"
 #include "SortedBagIterator.h"
+#include <iostream>
 
 SortedBag::SortedBag(Relation r, int capacity) {
 	this->relation = r;
@@ -13,7 +14,7 @@ SortedBag::SortedBag(Relation r, int capacity) {
     }
 }
 
-SortedBag::SortedBag(SortedBag& sorted_bag) {
+SortedBag::SortedBag(const SortedBag& sorted_bag) {
     this->number_of_elements = sorted_bag.number_of_elements;
     this->capacity = sorted_bag.capacity;
     this->relation = sorted_bag.relation;
@@ -198,7 +199,9 @@ bool SortedBag::is_prime(int number) {
 }
 
 int SortedBag::next_prime_number(int number) {
-    while(! this->is_prime(number++)) {}
+    while(! this->is_prime(number)) {
+        ++number;
+    }
 
     return number;
 }

@@ -2,6 +2,7 @@
 #include "SortedBag.h"
 #include <exception>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -18,9 +19,24 @@ SortedBagIterator::SortedBagIterator(const SortedBag& sorted_bag) : sorted_bag{s
         }
     }
 
-    std::sort(this->elements, this->elements + this->sorted_bag.size(), [this](TComp& a, TComp& b){return this->relation(a, b);});
+    bool changed = true;
+
+    while(changed) {
+        changed = false;
+
+        for(int i = 0; i < this->sorted_bag.size() - 1; ++i) {
+            if(! this->relation(this->elements[i], this->elements[i+1])) {
+                TComp aux = this->elements[i];
+                this->elements[i] = this->elements[i+1];
+                this->elements[i+1] = aux;
+                changed = true;
+            }
+        }
+    }
 
     this->current_position = 0;
+
+    std::cout << &this->sorted_bag << '\n';
 }
 
 TComp SortedBagIterator::getCurrent() {

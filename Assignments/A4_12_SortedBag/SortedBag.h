@@ -45,7 +45,7 @@ public:
 	explicit SortedBag(Relation r, int capacity=2);
 
     // copy constructor
-    SortedBag(SortedBag& sorted_bag);
+    SortedBag(const SortedBag& sorted_bag);
 
 	// adds an element to the sorted bag
 	void add(TComp e);

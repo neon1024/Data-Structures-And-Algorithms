@@ -16,7 +16,7 @@ void testAll() {
 	sb.add(5);
 	sb.add(10);
 	sb.add(8);
-
+    std::cout << &sb << '\n';
 	assert(sb.size() == 6);
 
 	assert(sb.nrOccurrences(5) == 2);
@@ -24,7 +24,7 @@ void testAll() {
 	assert(sb.remove(5) == true);
 	assert(sb.size() == 5);
 
-	//assert(sb.search(6) == true);
+	assert(sb.search(6) == true);
 	assert(sb.isEmpty() == false);
 
 	SortedBagIterator it = sb.iterator();
@@ -36,6 +36,4 @@ void testAll() {
 	assert(it.valid() == false);
 	it.first();
 	assert(it.valid() == true);
-
 }
-
