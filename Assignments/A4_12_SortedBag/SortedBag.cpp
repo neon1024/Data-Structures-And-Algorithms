@@ -210,10 +210,6 @@ bool SortedBag::is_prime(int number) {
     }
 
     return true;
-
-    bool prime[100];  // dynamically resize it with m and fill it with 1
-
-    for()
 }
 
 int SortedBag::next_prime_number(int number) {

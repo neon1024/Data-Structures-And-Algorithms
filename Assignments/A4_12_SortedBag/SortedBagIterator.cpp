@@ -19,20 +19,7 @@ SortedBagIterator::SortedBagIterator(const SortedBag& sorted_bag) : sorted_bag{s
         }
     }
 
-    bool changed = true;
-
-    while(changed) {
-        changed = false;
-
-        for(int i = 0; i < this->sorted_bag.size() - 1; ++i) {
-            if(! this->relation(this->elements[i], this->elements[i+1])) {
-                TComp aux = this->elements[i];
-                this->elements[i] = this->elements[i+1];
-                this->elements[i+1] = aux;
-                changed = true;
-            }
-        }
-    }
+    std::sort(this->elements, this->elements + this->sorted_bag.size(), [this](TComp& a, TComp& b){return this->relation(a, b);});
 
     this->current_position = 0;
 }
