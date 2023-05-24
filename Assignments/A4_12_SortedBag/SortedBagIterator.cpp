@@ -1,8 +1,6 @@
 #include "SortedBagIterator.h"
 #include "SortedBag.h"
 #include <exception>
-#include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -18,8 +16,6 @@ SortedBagIterator::SortedBagIterator(const SortedBag& sorted_bag) : sorted_bag{s
             this->elements[position++] = this->sorted_bag.elements[i];
         }
     }
-
-    // std::sort(this->elements, this->elements + this->sorted_bag.size(), [this](TComp& a, TComp& b){return this->relation(a, b);});
 
     this->merge_sort(0, this->sorted_bag.size() - 1);
 
