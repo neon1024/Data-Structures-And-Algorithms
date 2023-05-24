@@ -49,8 +49,8 @@ void SortedBag::add(TComp element) {
 }
 /// Best Case: Theta(1) \n
 /// Average Case: Theta(capacity) \n
-/// Worst Case: Theta(capacity) \n
-/// Overall: O(capacity) \n
+/// Worst Case: Theta(max{capacity, number_of_elements}) \n
+/// Overall: O(max{capacity, number_of_elements}) \n
 
 bool SortedBag::remove(TComp element) {
     int i = 0;
@@ -186,7 +186,7 @@ void SortedBag::rehash_add(TComp* new_elements, TComp element) {
 
     new_elements[position] = element;
 }
-/// Theta(capacity)
+/// Theta(number_of_elements/capacity)
 
 void SortedBag::rehash() {
     // make a new dynamic array
@@ -213,8 +213,8 @@ void SortedBag::rehash() {
     this->elements = new_elements;
 }
 /// Best Case: Theta(capacity) \n
-/// Worst Case: Theta(capacity^2) \n
-/// Overall: O(capacity^2) \n
+/// Worst Case: Theta(number_of_elements) \n
+/// Overall: O(number_of_elements) \n
 
 bool SortedBag::is_prime(int number) {
     if(number < 2) {
