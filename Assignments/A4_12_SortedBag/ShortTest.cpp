@@ -35,4 +35,26 @@ void testAll() {
 	assert(it.valid() == false);
 	it.first();
 	assert(it.valid() == true);
+
+    // Bonus
+    SortedBag bonus_sb(relation1);
+
+    bonus_sb.add(0);
+    bonus_sb.add(5);
+    bonus_sb.add(3);
+    bonus_sb.add(10);
+    bonus_sb.add(5);
+    bonus_sb.add(0);
+    bonus_sb.add(3);
+    bonus_sb.add(11);
+    bonus_sb.add(12);
+
+    SortedBagIterator bonus_it = bonus_sb.iterator();
+
+    while(bonus_it.valid()) {
+        std::cout << bonus_it.getCurrent() << '\n';
+        bonus_it.next();
+    }
+
+    std::cout << "least frequent: " << bonus_sb.leastFrequent() << '\n';
 }

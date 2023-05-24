@@ -60,6 +60,9 @@ public:
 	// returns the number of occurrences for an element in the sorted bag
 	int nrOccurrences(TComp e) const;
 
+    // returns the one of the TComp with the smallest frequency or NULL_TCOMP if the SortedBag is empty
+    TComp leastFrequent() const;
+
 	// returns the number of elements from the sorted bag
 	int size() const;
 
