@@ -1,5 +1,7 @@
 #include "Matrix.h"
 #include <exception>
+#include <iostream>
+
 using namespace std;
 
 Matrix::Matrix(int nrLines, int nrCols) {
@@ -57,6 +59,8 @@ TElem Matrix::element(TComp line, TComp column) const {
             current = current->left;
         }
     }
+
+    return NULL_TELEM;
 }
 
 TElem Matrix::modify(TComp line, TComp column, TElem value) {
@@ -65,6 +69,7 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
     }
 
     BSTNode* current = this->root;
+    BSTNode* previous = current;
 
     while(current != nullptr) {
         if(current->line == line and current->column == column) {
@@ -72,6 +77,8 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
             current->value = value;
             return old_value;
         }
+
+        previous = current;
 
         if(current->line < line and current->column < column) {
             current = current->right;
@@ -87,6 +94,18 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
     current->value = value;
     current->left = nullptr;
     current->right = nullptr;
+
+    if(previous == nullptr) {
+        this->root = current;
+    } else {
+        if(current->line < previous->line and current->column < previous->column) {
+            previous->left = current;
+        } else {
+            previous->right = current;
+        }
+    }
+
+    return NULL_TELEM;
 }
 
 MatrixIterator Matrix::iterator() {

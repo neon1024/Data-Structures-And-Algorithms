@@ -20,12 +20,15 @@ void testCreate() {
 void testModify() {
 	cout << "Test modify" << endl;
 	Matrix m(10, 10);
-	for (int j = 0; j < m.nrColumns(); j++)
-		m.modify(4, j, 3);
+	for (int j = 0; j < m.nrColumns(); j++) {
+        m.modify(4, j, 3);
+    }
+
 	for (int i = 0; i < m.nrLines(); i++)
 		for (int j = 0; j < m.nrColumns(); j++)
-			if (i == 4)
-				assert(m.element(i, j) == 3);
+			if (i == 4) {
+                assert(m.element(i, j) == 3);
+            }
 			else
 				assert(m.element(i, j) == NULL_TELEM);
 }
