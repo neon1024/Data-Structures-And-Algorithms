@@ -3,34 +3,58 @@
 using namespace std;
 
 Matrix::Matrix(int nrLines, int nrCols) {
-	//TODO - Implementation
+    this->number_of_lines = nrLines;
+    this->number_of_columns = nrCols;
+
+    this->root = nullptr;
 }
 
 Matrix::Matrix(const Matrix &matrix) {
     this->number_of_lines = matrix.number_of_lines;
     this->number_of_columns = matrix.number_of_columns;
+
+    this->root = new BSTNode{};
+    this->root->line = matrix.root->line;
+    this->root->column = matrix.root->column;
+    this->root->value = matrix.root->value;
+
+    this->root->left = new BSTNode{};
+    this->root->left->line = matrix.root->left->line;
+    this->root->left->column = matrix.root->left->column;
+    this->root->left->value = matrix.root->left->value;
+
+    this->root->right = new BSTNode{};
+    this->root->right->line = matrix.root->right->line;
+    this->root->right->column = matrix.root->right->column;
+    this->root->right->value = matrix.root->right->value;
 }
 
 int Matrix::nrLines() const {
-	//TODO - Implementation
-	return 0;
+    return this->number_of_lines;
 }
 
 int Matrix::nrColumns() const {
-	//TODO - Implementation
-	return 0;
+    return this->number_of_columns;
 }
 
-TElem Matrix::element(int i, int j) const {
-	//TODO - Implementation
-	return NULL_TELEM;
+TElem Matrix::element(TComp line, TComp column) const {
+    if(line >= this->number_of_lines or column >= this->number_of_columns) {
+        return NULL_TELEM;
+    }
+
 }
 
-TElem Matrix::modify(int i, int j, TElem e) {
-	//TODO - Implementation
-	return NULL_TELEM;
+TElem Matrix::modify(TComp line, TComp column, TElem value) {
+	if(line >= this->number_of_lines or column >= this->number_of_columns) {
+        return NULL_TELEM;
+    }
+
 }
 
 MatrixIterator Matrix::iterator() {
     return MatrixIterator(*this);
+}
+
+Matrix::~Matrix() {
+
 }
