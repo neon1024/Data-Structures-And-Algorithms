@@ -27,6 +27,8 @@ Matrix::Matrix(const Matrix &matrix) {
     this->root->right->line = matrix.root->right->line;
     this->root->right->column = matrix.root->right->column;
     this->root->right->value = matrix.root->right->value;
+
+    // TODO rest of the nodes
 }
 
 int Matrix::nrLines() const {
@@ -42,6 +44,19 @@ TElem Matrix::element(TComp line, TComp column) const {
         return NULL_TELEM;
     }
 
+    BSTNode* current = this->root;
+
+    while(current != nullptr) {
+        if(current->line == line and current->column == column) {
+            return current->value;
+        }
+
+        if(current->line < line and current->column < column) {
+            current = current->right;
+        } else {
+            current = current->left;
+        }
+    }
 }
 
 TElem Matrix::modify(TComp line, TComp column, TElem value) {
@@ -49,6 +64,19 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
         return NULL_TELEM;
     }
 
+    BSTNode* current = this->root;
+
+    while(current != nullptr) {
+        if(current->line == line and current->column == column) {
+            return current->value;
+        }
+
+        if(current->line < line and current->column < column) {
+            current = current->right;
+        } else {
+            current = current->left;
+        }
+    }
 }
 
 MatrixIterator Matrix::iterator() {
