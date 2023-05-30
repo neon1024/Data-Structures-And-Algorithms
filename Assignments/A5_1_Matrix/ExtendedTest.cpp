@@ -22,6 +22,7 @@ void testModify() {
 	Matrix m(10, 10);
 	for (int j = 0; j < m.nrColumns(); j++) {
         m.modify(4, j, 3);
+        std::cout << m.element(4, j) << '\n';
     }
 
 	for (int i = 0; i < m.nrLines(); i++)

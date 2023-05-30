@@ -70,7 +70,7 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
 
     BSTNode* current = this->root;
     BSTNode* previous = current;
-
+    
     while(current != nullptr) {
         if(current->line == line and current->column == column) {
             TElem old_value = current->value;
