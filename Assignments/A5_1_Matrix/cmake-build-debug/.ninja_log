@@ -1,0 +1,6 @@
+# ninja log v5
+16	128	7071684173020714	CMakeFiles/A5_1_Matrix.dir/ShortTest.cpp.obj	2b7df26cfc05972c
+25	147	7071684173206002	CMakeFiles/A5_1_Matrix.dir/Matrix.cpp.obj	ce94bf35bb930e00
+9	337	7071684175101531	CMakeFiles/A5_1_Matrix.dir/App.cpp.obj	a410538ac599d7bf
+0	353	7071684175246799	CMakeFiles/A5_1_Matrix.dir/ExtendedTest.cpp.obj	8ed68786c30e815d
+353	500	7071684176715337	A5_1_Matrix.exe	245f4ff1e5b13be9
