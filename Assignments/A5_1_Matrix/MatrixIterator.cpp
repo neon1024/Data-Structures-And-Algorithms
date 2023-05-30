@@ -1,6 +1,6 @@
 #include "MatrixIterator.h"
 
-MatrixIterator::MatrixIterator(Matrix matrix): matrix{matrix} {
+MatrixIterator::MatrixIterator(const Matrix& matrix): matrix{matrix} {
 }
 
 void MatrixIterator::first() {

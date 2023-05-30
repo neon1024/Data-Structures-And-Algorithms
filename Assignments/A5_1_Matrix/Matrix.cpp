@@ -68,7 +68,9 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
 
     while(current != nullptr) {
         if(current->line == line and current->column == column) {
-            return current->value;
+            TElem old_value = current->value;
+            current->value = value;
+            return old_value;
         }
 
         if(current->line < line and current->column < column) {
@@ -77,6 +79,14 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
             current = current->left;
         }
     }
+
+    /// In case there was no matching element in the sparse matrix we create one
+    current = new BSTNode{};
+    current->line = line;
+    current->column = column;
+    current->value = value;
+    current->left = nullptr;
+    current->right = nullptr;
 }
 
 MatrixIterator Matrix::iterator() {
