@@ -22,7 +22,6 @@ void testModify() {
 	Matrix m(10, 10);
 	for (int j = 0; j < m.nrColumns(); j++) {
         m.modify(4, j, 3);
-        std::cout << m.element(4, j) << '\n';
     }
 
 	for (int i = 0; i < m.nrLines(); i++)
@@ -76,9 +75,9 @@ void testQuantity() {
 			if (i % 2 == 0 && j % 2 == 0)
 				assert(m.element(i, j) == i * j);
 			else
-				if (j % 3 == 0)
-					assert(m.element(i, j) == i + j);
-				else assert(m.element(i, j) == NULL_TELEM);
+				if (j % 3 == 0) {
+                    assert(m.element(i, j) == i + j);
+                } else assert(m.element(i, j) == NULL_TELEM);
 }
 
 void testExceptions() {

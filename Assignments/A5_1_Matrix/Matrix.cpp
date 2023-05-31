@@ -11,28 +11,6 @@ Matrix::Matrix(int nrLines, int nrCols) {
     this->root = nullptr;
 }
 
-Matrix::Matrix(const Matrix &matrix) {
-    this->number_of_lines = matrix.number_of_lines;
-    this->number_of_columns = matrix.number_of_columns;
-
-    this->root = new BSTNode{};
-    this->root->line = matrix.root->line;
-    this->root->column = matrix.root->column;
-    this->root->value = matrix.root->value;
-
-    this->root->left = new BSTNode{};
-    this->root->left->line = matrix.root->left->line;
-    this->root->left->column = matrix.root->left->column;
-    this->root->left->value = matrix.root->left->value;
-
-    this->root->right = new BSTNode{};
-    this->root->right->line = matrix.root->right->line;
-    this->root->right->column = matrix.root->right->column;
-    this->root->right->value = matrix.root->right->value;
-
-    // TODO rest of the nodes
-}
-
 int Matrix::nrLines() const {
     return this->number_of_lines;
 }
@@ -42,7 +20,8 @@ int Matrix::nrColumns() const {
 }
 
 TElem Matrix::element(TComp line, TComp column) const {
-    if(line >= this->number_of_lines or column >= this->number_of_columns) {
+    if(line >= this->number_of_lines or column >= this->number_of_columns
+        or line < 0 or column < 0) {
         return NULL_TELEM;
     }
 
@@ -53,18 +32,25 @@ TElem Matrix::element(TComp line, TComp column) const {
             return current->value;
         }
 
-        if(current->line < line and current->column < column) {
-            current = current->right;
-        } else {
+        if(current->line == line and current->column < column) {
             current = current->left;
+        } else if(current->line == line and current->column > column) {
+            current = current->left;
+        } else if(current->line < line) {
+            current = current->right;
         }
     }
 
     return NULL_TELEM;
 }
 
+void Matrix::insert(BSTNode* node, TComp value) {
+
+}
+
 TElem Matrix::modify(TComp line, TComp column, TElem value) {
-	if(line >= this->number_of_lines or column >= this->number_of_columns) {
+	if(line >= this->number_of_lines or column >= this->number_of_columns
+        or line < 0 or column < 0) {
         return NULL_TELEM;
     }
 
@@ -80,10 +66,12 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
 
         previous = current;
 
-        if(current->line < line and current->column < column) {
-            current = current->right;
-        } else {
+        if(current->line == line and current->column < column) {
             current = current->left;
+        } else if(current->line == line and current->column > column) {
+            current = current->left;
+        } else if(current->line < line) {
+            current = current->right;
         }
     }
 
@@ -98,7 +86,7 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
     if(previous == nullptr) {
         this->root = current;
     } else {
-        if(current->line < previous->line and current->column < previous->column) {
+        if(current->line <= previous->line and current->column <= previous->column) {
             previous->left = current;
         } else {
             previous->right = current;
@@ -106,10 +94,6 @@ TElem Matrix::modify(TComp line, TComp column, TElem value) {
     }
 
     return NULL_TELEM;
-}
-
-MatrixIterator Matrix::iterator() {
-    return MatrixIterator(*this);
 }
 
 Matrix::~Matrix() {

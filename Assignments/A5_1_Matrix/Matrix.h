@@ -1,18 +1,12 @@
 #pragma once
 
-#include "MatrixIterator.h"
-
 //DO NOT CHANGE THIS PART
 typedef int TElem;
 typedef int TComp;
 #define NULL_TELEM 0
 
-class MatrixIterator;
-
 class Matrix {
 private:
-    friend class MatrixIterator;
-
 	//TODO - Representation
     /// Sparse Matrix \n
     /// The elements are of form \<line, column, value\>, value != 0 \n
@@ -32,12 +26,11 @@ private:
 
     BSTNode* root;
 
+    void insert(BSTNode* node, TComp value);
+
 public:
 	// constructor
 	Matrix(int nrLines, int nrCols);
-
-    // copy constructor
-    Matrix(const Matrix& matrix);
 
 	// returns the number of lines
 	int nrLines() const;
@@ -53,8 +46,6 @@ public:
 	// returns the previous value from the position
 	// throws exception if (i,j) is not a valid position in the Matrix
 	TElem modify(TComp i, TComp j, TElem e);
-
-    MatrixIterator iterator();
 
     // destructor
     ~Matrix();
