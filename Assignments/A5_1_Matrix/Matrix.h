@@ -26,6 +26,8 @@ private:
 
     BSTNode* root;
 
+    void destroyTree(BSTNode* node);
+
 public:
 	// constructor
 	Matrix(int nrLines, int nrCols);
