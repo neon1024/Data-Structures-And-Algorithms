@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2022.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\A5_1_Matrix.dir/objects.a
+C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\A5_1_Matrix.dir/objects.a @CMakeFiles\A5_1_Matrix.dir\objects1.rsp
+C:\msys64\mingw64\bin\c++.exe -g -Wl,--whole-archive CMakeFiles\A5_1_Matrix.dir/objects.a -Wl,--no-whole-archive -o A5_1_Matrix.exe -Wl,--out-implib,libA5_1_Matrix.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\A5_1_Matrix.dir\linklibs.rsp

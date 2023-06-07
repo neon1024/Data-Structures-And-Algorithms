@@ -1,13 +1,9 @@
 #include "Matrix.h"
-#include <exception>
-#include <iostream>
-
-using namespace std;
+#include <stdexcept>
 
 Matrix::Matrix(int nrLines, int nrCols) {
     this->number_of_lines = nrLines;
     this->number_of_columns = nrCols;
-
     this->root = nullptr;
 }
 
@@ -19,83 +15,74 @@ int Matrix::nrColumns() const {
     return this->number_of_columns;
 }
 
-TElem Matrix::element(TComp line, TComp column) const {
-    if(line >= this->number_of_lines or column >= this->number_of_columns
-        or line < 0 or column < 0) {
-        return NULL_TELEM;
-    }
+TElem Matrix::element(TComp i, TComp j) const {
+    if(i < 0 || i >= this->number_of_lines || j < 0 || j >= this->number_of_columns)
+        throw std::out_of_range("Invalid position");
 
-    BSTNode* current = this->root;
+    BSTNode* currentNode = this->root;
 
-    while(current != nullptr) {
-        if(current->line == line and current->column == column) {
-            return current->value;
-        }
-
-        if(current->line == line and current->column < column) {
-            current = current->left;
-        } else if(current->line == line and current->column > column) {
-            current = current->left;
-        } else if(current->line < line) {
-            current = current->right;
-        }
+    while(currentNode != nullptr) {
+        if(currentNode->line == i && currentNode->column == j)
+            return currentNode->value;
+        else if(currentNode->line > i || (currentNode->line == i && currentNode->column > j))
+            currentNode = currentNode->left;
+        else
+            currentNode = currentNode->right;
     }
 
     return NULL_TELEM;
 }
 
-void Matrix::insert(BSTNode* node, TComp value) {
+TElem Matrix::modify(TComp i, TComp j, TElem e) {
+    if(i < 0 || i >= this->number_of_lines || j < 0 || j >= this->number_of_columns)
+        throw std::out_of_range("Invalid position");
 
-}
+    BSTNode* parentNode = nullptr;
+    BSTNode* currentNode = this->root;
 
-TElem Matrix::modify(TComp line, TComp column, TElem value) {
-	if(line >= this->number_of_lines or column >= this->number_of_columns
-        or line < 0 or column < 0) {
-        return NULL_TELEM;
-    }
+    // Search for the node with the specified position
+    while (currentNode != nullptr) {
+        if (currentNode->line == i && currentNode->column == j)
+            break;
 
-    BSTNode* current = this->root;
-    BSTNode* previous = current;
-    
-    while(current != nullptr) {
-        if(current->line == line and current->column == column) {
-            TElem old_value = current->value;
-            current->value = value;
-            return old_value;
-        }
-
-        previous = current;
-
-        if(current->line == line and current->column < column) {
-            current = current->left;
-        } else if(current->line == line and current->column > column) {
-            current = current->left;
-        } else if(current->line < line) {
-            current = current->right;
-        }
-    }
-
-    /// In case there was no matching element in the sparse matrix we create one
-    current = new BSTNode{};
-    current->line = line;
-    current->column = column;
-    current->value = value;
-    current->left = nullptr;
-    current->right = nullptr;
-
-    if(previous == nullptr) {
-        this->root = current;
-    } else {
-        if(current->line <= previous->line and current->column <= previous->column) {
-            previous->left = current;
+        if (currentNode->line > i || (currentNode->line == i && currentNode->column > j)) {
+            parentNode = currentNode;
+            currentNode = currentNode->left;
         } else {
-            previous->right = current;
+            parentNode = currentNode;
+            currentNode = currentNode->right;
         }
+    }
+
+    // Modify the value if the node exists
+    if (currentNode != nullptr) {
+        TElem previousValue = currentNode->value;
+        currentNode->value = e;
+        return previousValue;
+    }
+
+    // Create a new node if the node doesn't exist
+    BSTNode* newNode = new BSTNode;
+    newNode->line = i;
+    newNode->column = j;
+    newNode->value = e;
+    newNode->left = nullptr;
+    newNode->right = nullptr;
+
+    // Insert the new node into the tree
+    if (parentNode == nullptr) {
+        this->root = newNode;
+    } else if (parentNode->line > i || (parentNode->line == i && parentNode->column > j)) {
+        parentNode->left = newNode;
+    } else {
+        parentNode->right = newNode;
     }
 
     return NULL_TELEM;
 }
 
 Matrix::~Matrix() {
-
+    // TODO: Implement destructor to deallocate memory
+    //       occupied by the BST nodes.
+    //       This can be done using post-order traversal.
 }

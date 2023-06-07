@@ -26,8 +26,6 @@ private:
 
     BSTNode* root;
 
-    void insert(BSTNode* node, TComp value);
-
 public:
 	// constructor
 	Matrix(int nrLines, int nrCols);
