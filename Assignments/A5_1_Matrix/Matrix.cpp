@@ -27,7 +27,8 @@ TElem Matrix::element(TComp i, TComp j) const {
     while(currentNode != nullptr) {
         if(currentNode->line == i && currentNode->column == j)
             return currentNode->value;
-        else if(currentNode->line > i || (currentNode->line == i && currentNode->column > j))
+
+        if(currentNode->line > i || (currentNode->line == i && currentNode->column > j))
             currentNode = currentNode->left;
         else
             currentNode = currentNode->right;
