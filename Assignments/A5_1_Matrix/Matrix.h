@@ -47,6 +47,8 @@ public:
 	// throws exception if (i,j) is not a valid position in the Matrix
 	TElem modify(TComp i, TComp j, TElem e);
 
+    void setMainDiagonal(TElem elem);
+
     // destructor
     ~Matrix();
 };

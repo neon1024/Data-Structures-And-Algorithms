@@ -96,10 +96,25 @@ TElem Matrix::modify(TComp i, TComp j, TElem e) {
 Matrix::~Matrix() {
     this->destroyTree(this->root);
 }
+/// Overall: Theta(nodes)\n
+
 /// Best Case: Theta(nodes)\n
 /// Average Case: Theta(nodes)\n
 /// Worst Case: Theta(nodes)\n
-/// Overall: Theta(nodes)\n
+
+void Matrix::setMainDiagonal(TElem elem) {
+    if(this->number_of_lines != this->number_of_columns) {
+        throw std::runtime_error("not a square matrix");
+    }
+
+    for(int index{0}; index < this->number_of_lines; ++index) {
+        this->modify(index, index, elem);
+    }
+}
+/// Best Case: Theta(number_of_lines * height)\n
+/// Average Case: \n
+/// Worst Case: Theta(number_of_lines * height)\n
+/// Overall: Theta(number_of_lines * height)\n
 
 void Matrix::destroyTree(BSTNode* node) {
     if(node != nullptr) {

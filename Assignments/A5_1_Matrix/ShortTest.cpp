@@ -27,4 +27,26 @@ void testAll() {
 
     mt.modify(1, 0, 1);
     assert(mt.element(1, 0) == 1);
+
+    Matrix mb1(5, 6);
+
+    try {
+        mb1.setMainDiagonal(10);
+
+        assert(false);
+    } catch(...) {
+        assert(true);
+    }
+
+    Matrix mb2(5, 5);
+
+    for(int index{0}; index < mb2.nrLines(); ++index) {
+        std::cout << mb2.element(index, index) << '\n';
+    }
+
+    mb2.setMainDiagonal(10);
+
+    for(int index{0}; index < mb2.nrLines(); ++index) {
+        std::cout << mb2.element(index, index) << '\n';
+    }
 }
